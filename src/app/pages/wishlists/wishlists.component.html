@@ -1,0 +1,42 @@
+<div class="wishlist-section">
+    <div class="wishlists-head">
+        <img src="../assets/icons/favorite_FILL1_wght400_GRAD0_opsz48.svg" alt="">
+        <h5 *ngIf="!notLogged">{{user.firstName}} {{user.lastName}}'s Wishlists</h5>
+        <p class="top" *ngIf="notLogged; else loggedin">Log in to view your wishlists</p>
+        <p *ngIf="notLogged">You can create, view, or edit wishlists once you've logged in.</p>
+    </div>
+    <button routerLink="/login" class="routeToLogin" *ngIf="notLogged">Log in</button>
+
+    <ng-template #loggedin>
+        <!-- [to be added] -->
+        <div class="wishlist-body">
+            <div class="row wish-row">
+                <div class="col-2"></div>
+                <div class="col-5 info-container">Facility / Service</div>
+                <div class="col-2">Rate per day</div>
+                <div class="col-3"></div>
+            </div>
+            <div *ngIf="haveValues">
+                <div class="row wish-container wish-row" *ngFor="let facility of facilityInfos; index as i" >
+                    <div class="col-2 thumbnail-container"><img src="../uploads/{{facilityImages[facilityInfos.length - i - 1].image1}}" alt=""></div>
+                    <div class="col-5 info-container">
+                        <h6>{{facilityInfos[facilityInfos.length - i - 1].facilityTitle}}</h6>
+                        <p>{{facilityInfos[facilityInfos.length - i - 1].facilityStreet}} {{facilityInfos[facilityInfos.length - i - 1].facilityBrgy}}, {{facilityInfos[facilityInfos.length - i - 1].facilityCity}}, {{facilityInfos[facilityInfos.length - i - 1].facilityState}} {{facilityInfos[facilityInfos.length - i - 1].facilityZip}}</p>
+                        <p>Hosted by: {{facilityHostsFirstName[facilityInfos.length - i - 1]}} {{facilityHostsLastName[facilityInfos.length - i - 1]}}</p>
+                        <!-- <p>Wishlist Date: {{wishlistDatas[facilityInfos.length - i - 1].addDate}}</p>
+                        <p>Wishlist Time: {{wishlistDatas[facilityInfos.length - i - 1].addTime}}</p> -->
+                    </div>
+                    <div class="col-2 price-container">₱{{facilityInfos[facilityInfos.length - i - 1].priceRate}} per day</div>
+                    <div class="col-3 book-btn-container">
+                        <button class="remove-btn" (click)="onClickRemove(facilityInfos[facilityInfos.length - i - 1].facilityId)">Remove</button>
+                        <button class="book-btn" (click)="onClickBookNow(facilityInfos[facilityInfos.length - i - 1].facilityId)">Book Now</button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!haveValues" class="loading">
+                <p>{{loadingWishlists}}</p>
+            </div>
+        </div>
+    </ng-template>
+</div>
+

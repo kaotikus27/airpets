@@ -1,0 +1,301 @@
+<div class="become-host-section">
+    <section style="border-bottom: 2px solid rgb(53, 53, 53);" class="p-5">
+        <div class="section-container">
+            <div class="first-top-container">
+                <h3 class="" id="justify ">
+                    <img src="../assets/icons/person_pin_circle_FILL0_wght400_GRAD0_opsz48.svg">Tell us about your place
+                </h3>
+                <p class="pb-3">
+                    List of needed information: <br>
+                    1. Property description <br>
+                    2. Number of allowed guest <br>
+                    3. Property to avail by the guest (including if "Entire place or Room only") <br>
+                    4. Location of the property
+                </p>
+            </div>
+            <div class="second-top-container">
+                <h6>
+                    Type of place <span> (best description of your place) </span>
+                </h6>
+                <div class="selectform">
+                    <select class="form-select" aria-label="Default select example"
+                        [(ngModel)]="facilityMainInfo.facilityType" (click)="onInputType()">
+                        <option selected value="hotel">Pet Hotel</option>
+                        <option value="petSitter">Pet Sitter</option>
+                    </select>
+                </div>
+                <div class="third-top-container">
+                    <h6>Type of accomodation pets will have</h6>
+                    <div class="accomodation-btn-container">
+                        <div class="accomodations row">
+                            <div class="btn-container col-md-4 col-sm-12" *ngFor="let item of accomodation; index as i">
+                                <Button [ngClass]="btnAccomodation[i]" class={{disabledAccomBtn[i]}}
+                                    (click)="onClick('accomodation', i)">
+                                    <div class="btn-left-info">
+                                        <span>{{item.name}}</span>
+                                        <p class="fontzxc">{{item.desc}}</p>
+                                    </div>
+                                    <div class="img-accom-container">
+                                        <img src={{item.img}}>
+                                    </div>
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="border-bottom: 2px solid rgb(53, 53, 53);" class="p-5">
+        <div class="section-container">
+            <div class="location-section">
+                <h6>
+                    Enter your address
+                </h6>
+            </div>
+            <div class="Maps-Textbox">
+                <div class="textboxs">
+                    <div class="row address-container">
+                        <div class="col-lg-4 col-md-4 address-input">
+                            <input type="text" class="form-control" id="street" placeholder="Street"
+                                [(ngModel)]="address.street">
+                        </div>
+                        <div class="col-lg-8 col-md-8 address-input">
+                            <input height="200px" type="text" class="form-control" id="barangay" placeholder="Barangay"
+                                [(ngModel)]="address.barangay">
+                        </div>
+                        <!-- <div class="form-group">
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="City" (keydown.enter)="$event.preventDefault()"
+                            placeholder="Search Location" type="text" #search>
+                        </div> -->
+                        <div class="col-lg-4 col-md-4 address-input">
+                            <input type="text" class="form-control" id="city" placeholder="City"
+                                [(ngModel)]="address.city">
+                        </div>
+                        <div class="col-lg-4 col-md-4 address-input">
+                            <input type="text" class="form-control" id="state" placeholder="State"
+                                [(ngModel)]="address.state">
+                        </div>
+                        <div class="col-lg-4 col-md-4 address-input">
+                            <input type="text" class="form-control" id="zipcode" placeholder="Zipcode"
+                                [(ngModel)]="address.zipcode">
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="googlemaps"> -->
+                <!-- <div>
+                        <label>Enter address</label>
+                        <input type="submit" class="my-search-box" (keydown.enter)="$event.preventDefault()"
+                            placeholder="Search Location" type="text" #search />
+                    </div> -->
+
+                <!-- <google-map #myGoogleMap height="325px" width="500px" [zoom]="zoom" [center]="center"
+                        [options]="options"></google-map> -->
+                <!-- </div> -->
+            </div>
+        </div>
+    </section>
+    <section style="border-bottom: 2px solid rgb(53, 53, 53);" class="p-5">
+        <div class="section-container">
+            <div class="anotherdetailsforplace">
+                <h6> Share some basics about your place </h6>
+            </div>
+            <div class="anadadetails-select row">
+                <div class="selectform col-md-3 col-sm-6">
+                    <label>Rooms</label>
+                    <select class="form-select" aria-label="Default select example" [(ngModel)]="basicInput.room">
+                        <option selected value="10">10</option>
+                        <option value="9">9</option>
+                        <option value="8">8</option>
+                        <option value="7">7</option>
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                    </select>
+                </div>
+                <div class="selectform col-md-3 col-sm-6">
+                    <label>Playgrounds</label>
+                    <select class="form-select" aria-label="Default select example" [(ngModel)]="basicInput.playground">
+                        <option selected value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div class="selectform col-md-3 col-sm-6">
+                    <label>Beds</label>
+                    <select class="form-select" aria-label="Default select example" [(ngModel)]="basicInput.bed">
+                        <option selected value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div class="selectform col-md-3 col-sm-6">
+                    <label>Bathrooms</label>
+                    <select class="form-select" aria-label="Default select example" [(ngModel)]="basicInput.bathroom">
+                        <option selected value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="stand-out">
+        <div class="section-container">
+            <div class="makeyourplacestandout">
+                <h3 class="" id="justify ">
+                    <img width="48px" src="../assets/icons/images (1).png"> Make your place stand out
+                </h3>
+                <p>In this part, you’ll add some of the amenities your place offers, plus 5 or more photos. Then, you’ll
+                    create a title and description.</p>
+            </div>
+            <div>
+                <h6 style="padding-top: 10px;">
+                    Tell guests what your place has to offer <br>
+                    <span class="fontzxc">Choose other amenities here for publish your listing.</span>
+                </h6>
+            </div>
+            <div class="row col-container">
+                <div class="card-container col-lg-3 col-md-3 col-sm-3 col-6 d-flex align-items-stretch"
+                    *ngFor="let offer of placeOffer; index as i">
+                    <button class="item-card" [ngClass]="btnPlaceOffer[i]" (click)="onClick('placeOffer', i)">
+                        <img src={{offer.icon}} alt="">
+                        <p>{{offer.name}}</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="amenitiess">
+        <div class="section-container">
+            <h6>Amenities for pet owners<br></h6>
+            <div class="row col-container">
+                <div class="card-container col-lg-3 col-md-3 col-sm-3 col-6 d-flex align-items-stretch"
+                    *ngFor="let amenity of amenities; index as i">
+                    <button class="item-card" [ngClass]="btnAmenities[i]" (click)="onClick('amenities', i)">
+                        <img src={{amenity.icon}} alt="">
+                        <p>{{amenity.name}}</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="border-bottom: 2px solid rgb(53, 53, 53);" class="safety">
+        <div class="section-container">
+            <h6>Select safety measures <br></h6>
+            <div class="row col-container">
+                <div class="card-container col-lg-3 col-md-3 col-sm-3 col-6 d-flex align-items-stretch"
+                    *ngFor="let safety of placeSafety; index as i">
+                    <button class="item-card" [ngClass]="btnSafety[i]" (click)="onClick('safety', i)">
+                        <img src={{safety.icon}} alt="">
+                        <p>{{safety.name}}</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="border-bottom: 2px solid rgb(53, 53, 53);" class="photo up py-5">
+        <div class="section-container">
+            <div class="pb-2">
+                <h3 class="" id="justify">
+                    <img width="48px" src="../assets/icons/photo_camera_FILL0_wght400_GRAD0_opsz48.png">
+                    Add Photos
+                </h3>
+                <!-- <p>You'll need photos to get started. You can make changes later.</p> -->
+            </div>
+            <div class="filesuploads">
+                <!-- <label for="image">
+                    <div>Choose Files</div>
+                    <div></div>
+                </label> -->
+                <!-- <div class="custom-file-viewer">
+                    haha
+                </div> -->
+                <div class="download-img-container">
+                    <label for="formFileMultiple" class="custom-btn-upload">
+                        Upload Photos
+                    </label>
+                    <div class="filename-container">
+                        <!-- <p>{{filenamesList}}</p> -->
+                        <p *ngFor="let imageFile of imageFiles">{{imageFile}}</p>
+                    </div>
+                </div>
+                <input class="form-control" name="image" ng2FileSelect [uploader]="uploader"
+                    (input)="fileSelect($event)" accept="image/x-png,image/gif,image/jpeg" type="file"
+                    id="formFileMultiple" multiple>
+                <!-- <button>SubmitTest</button> -->
+                <!-- <p *ngFor="let imageFile of imageFiles">{{imageFile}}</p> -->
+            </div>
+        </div>
+    </section>
+    <!-- <button (click)="test()">Change test</button> -->
+    <section class="hotelname py-5">
+        <div class="section-container">
+            <div>
+                <h3 id="justify ">Facility Title</h3>
+                <p>
+                    Short titles work best. Have fun with it. (Ex: Pet Express).
+                </p>
+            </div>
+            <div class="inputfieldTitle">
+                <input type="text" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"
+                    placeholder="Facility Name/Title" [(ngModel)]="facilityMainInfo.facilityName">
+            </div>
+        </div>
+    </section>
+    <section class="descriptiontitle py-5" style="border-bottom: 2px solid rgb(53, 53, 53);">
+        <div class="section-container">
+            <div>
+                <h3 id="justify ">
+                    Description
+                </h3>
+                <p class="pb-2">
+                    Share what makes your place special.
+                </p>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                    placeholder="Input Description Here" [(ngModel)]="facilityMainInfo.facilityDesc"></textarea>
+            </div>
+        </div>
+    </section>
+    <section class="pricesection py-5" style="border-bottom: 2px solid rgb(53, 53, 53);">
+        <div class="section-container">
+            <div>
+                <h3 id="justify ">
+                    Set your Price
+                </h3>
+                <p>
+                    Set price for your Facility.
+                </p>
+            </div>
+            <div class="d-flex justify-content-center p-3">
+                <div class="buttonsp">
+                    <div class="priceinput">
+                        <button (click)="priceInput('minus')">
+                            <h3>-</h3>
+                        </button>
+                        <input type="text" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"
+                            value="₱{{setPrice}}">
+                        <button (click)="priceInput('add')">+</button>
+                    </div>
+                    <div>
+                        <h2>Per Day</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="finalsubmit">
+        <div class="agree-container">
+            <input type="checkbox" value="" id="flexCheckDefault">
+            <label>
+                Agree to <a (click)="openTerms()"> Terms and Conditions. </a>
+            </label>
+        </div>
+        <div>
+            <button type="submit" (click)="uploader.uploadAll(); onSubmit('register')">Submit</button>
+        </div>
+    </section>
+</div>
+

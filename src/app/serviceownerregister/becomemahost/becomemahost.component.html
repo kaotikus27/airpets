@@ -1,0 +1,349 @@
+<div class="container">
+    <div class="container-fluid">
+        <section class="p-5">
+            <div class="first-top-container d-flex flex-column justify-content-center">
+                <h3 id="justify ">
+                    <img src="../assets/icons/person_pin_circle_FILL0_wght400_GRAD0_opsz48.svg">Tell us about
+                    your
+                    place
+                </h3>
+                <p class="align">
+                    In this step, we'll ask you which type of property you have and if guests will book the
+                    entire
+                    place
+                    or
+                    just
+                    a room. Then let us know the
+                    location and how many guests can stay.
+                </p>
+            </div>
+            <div class="row first-select-form d-flex justify-content-center ">
+                <div class="col-md-12 sm-12 col-12">
+                    <h6>
+                        Type of place <span class="fontzxc"> (best description of your place) </span>
+                    </h6>
+                    <div class="selectform">
+                        <select class="formselect" aria-label="Default select example">
+                            <option selected>Pet Hotel</option>
+                            <option value="1">Pet Seater</option>
+                            <option value="2">Others</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12 sm-6 col-12 btns">
+                    <h6>
+                        Type of accomodation pets will have
+                    </h6>
+                    <div class="row accomodations d-flex justify-content-center">
+                        <div class="bts col-md-4 ">
+                            <Button type="submit" id="justify"> Handled Personally
+                                <p class="fontzxc">
+                                    Pets stays under pet sitter’s observation to ensure their safety.
+                                </p>
+                                <img src="../assets/icon/images.png" alt="">
+
+                            </Button>
+                        </div>
+                        <div class="bts col-md-4">
+                            <Button type="submit" id="justify"> A private room
+                                <p class="fontzxc">
+                                    Pets stays in a private room but some areas may be shared with other pets
+                                </p>
+                                <img src="../assets/icon/door_open_FILL1_wght400_GRAD0_opsz48.png" alt="">
+
+                            </Button>
+                        </div>
+                        <div class="bts col-md-4">
+                            <Button type="submit" id="justify"> A shared room
+                                <p class="fontzxc">
+                                    Pets stays and sleep in a room or area that may be shared with other pets.
+                                </p>
+                                <img class="float-right" src="../assets/icon/download.png" alt="">
+                            </Button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="container">
+    <section class="p-5">
+        <div class="location-section">
+            <h3 class="" id="justify ">
+                Where are you located
+            </h3>
+            <p>
+                Your address is only shared with guest after they've just made a reservation.
+            </p>
+        </div>
+        <div class="row Maps-Textbox">
+            <div class="col-md textboxs">
+                <form>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Street">
+                    </div>
+                    <div class="form-group">
+                        <input height="200px" type="text" class="form-control" id="exampleInputPassword1"
+                            placeholder="Barangay">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="City"
+                            placeholder="Search Location" type="text">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="State">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Zipcode">
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="form-group">
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="City"
+                    (keydown.enter)="$event.preventDefault()" placeholder="Search Location" type="text" #search>
+            </div> -->
+            <div class="col-md d-flex justify-content-center googlemaps">
+                <div>
+                    <!-- <label>Enter address</label> -->
+                    <input type="submit" class="my-search-box" (keydown.enter)="$event.preventDefault()"
+                        placeholder="Search Location" type="text" #search />
+                </div>
+
+                <!-- <google-map #myGoogleMap height="325px" width="500px" [zoom]="zoom" [center]="center"
+                    [options]="options">
+                </google-map> -->
+            </div>
+        </div>
+    </section>
+</div>
+<div class="container">
+    <section class="">
+        <div class="anotherdetailsforplace">
+            <h3> Share some basics about your place </h3>
+        </div>
+        <div class="row anadadetails-select p-5">
+            <div class="col-md-4 selectform">
+                <label>Rooms</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>10</option>
+                    <option value="1">9</option>
+                    <option value="2">8</option>
+                    <option value="3">7</option>
+                    <option value="4">6</option>
+                    <option value="5">5</option>
+                    <option value="6">4</option>
+                    <option value="7">3</option>
+                    <option value="8">2</option>
+                    <option value="9">1</option>
+                </select>
+            </div>
+            <div class="col-md-4 col-sm-6  selectform">
+                <label>Playgrounds</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Yes</option>
+                    <option value="1">No</option>
+                </select>
+            </div>
+            <div class="col-md-4 col-sm-6  selectform">
+                <label>Beds</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Yes</option>
+                    <option value="1">No</option>
+                </select>
+            </div>
+            <div class="col-md-4 col-sm-6 selectform">
+                <label>Bathrooms</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Yes</option>
+                    <option value="1">No</option>
+                </select>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="container">
+    <section class="p-5">
+        <div class="makeyourplacestandout">
+            <h3 class="" id="justify ">
+                <img width="48px" src="../assets/icons/images (1).png">Make your place stand out
+            </h3>
+            <p class="align">
+                In this part, you’ll add some of the amenities your place offers, plus 5 or more photos. Then, you’ll
+                create a title and description.
+            </p>
+        </div>
+        <div>
+            <h6 style="padding-left:50px; padding-top: 20px;">
+                Tell guests what your place has to offer <br>
+                <span class="fontzxc">Choose other amenities here for publish your listing.</span>
+            </h6>
+        </div>
+        <div class="offer">
+            <Button type="submit" id="justify"> <img src="../assets/icon/download (3).png" alt=""> <br> In-house
+                veterinarian
+            </Button>
+            <Button type="submit" id="justify"> <img src="../assets/icon/images (1).jfif" alt=""> <br> Offer Pet Bath
+            </Button>
+            <Button type="submit" id="justify"> <img src="../assets/icon/download (5).png" alt=""> <br> Walking pet
+            </Button>
+            <Button type="submit" id="justify"> <img src="../assets/icon/download (6).png" alt=""> <br> Dedicated
+                Playground
+            </Button>
+        </div>
+        <div class="offer">
+            <Button type="submit" id="justify"> <img src="../assets/icon/download (4).png" alt=""> <br> Pet Grooming
+                Service
+            </Button>
+            <Button type="submit" id="justify"><img src="../assets/icon/images (2).png" alt=""> <br> Air Conditioned
+            </Button>
+            <Button type="submit" id="justify"> <img src="../assets/icon/nest_cam_iq_FILL1_wght400_GRAD0_opsz48.png"
+                    alt="">
+                <br> Online Surveillance
+            </Button>
+            <Button type="submit" id="justify"> <img src="../assets/icon/pool.png" alt=""> <br> Pool for Pets
+            </Button>
+        </div>
+    </section>
+</div>
+<div class="container">
+    <section>
+        <h6 style="padding-left:50px; padding-top: 20px;">
+            Do you have any amenities for pet owners? <br>
+        </h6>
+        <div class="amenities">
+            <Button type="submit" id="justify"> <img src="../assets/icon/wifi_FILL0_wght400_GRAD0_opsz48.png" alt="">
+                <br> Wifi
+            </Button>
+            <Button type="submit" id="justify"> <img src="../assets/icon/garage_home_FILL0_wght400_GRAD0_opsz48.png"
+                    alt="">
+                <br> Free Parking on
+                premises
+            </Button>
+            <Button type="submit" id="justify"> <img src="../assets/icon/local_parking_FILL0_wght400_GRAD0_opsz48.png"
+                    alt=""> <br> Paid parking on
+                premises
+            </Button>
+            <Button type="submit" id="justify"> <img src="../assets/icon/hourglass_top_FILL0_wght400_GRAD0_opsz48.png"
+                    alt=""> <br> Dedicated
+                waiting area
+            </Button>
+        </div>
+    </section>
+    <section class="py-5">
+        <h6 style="padding-left:50px; padding-top: 20px;">
+            Do you have any of these safety measures? <br>
+        </h6>
+        <div class="safetymeasures">
+            <Button type="submit" id="justify"> <img src="../assets/icon/detector_smoke_FILL0_wght400_GRAD0_opsz48.png"
+                    alt=""> <br> Smoke Alarm
+            </Button>
+            <Button type="submit" id="justify"> <img
+                    src="../assets/icon/fire_extinguisher_FILL0_wght400_GRAD0_opsz48.png" alt=""> <br> Fire Extinguisher
+            </Button>
+            <Button type="submit" id="justify"> <img
+                    src="../assets/icon/medical_services_FILL0_wght400_GRAD0_opsz48.png" alt=""> <br> First Aid Kit
+            </Button>
+        </div>
+    </section>
+</div>
+<div class="container">
+    <section class="up p-5">
+        <div class="">
+            <h3 class="" id="justify ">
+                <img width="48px" src="../assets/icons/photo_camera_FILL0_wght400_GRAD0_opsz48.png">Add some photos of
+                your property
+            </h3>
+            <p class="align">
+                You'll need photos to get started. You can make changes later.
+            </p>
+        </div>
+        <h6 class="" style="padding-left:70px; padding-top: 20px; font-weight: 700;">
+            Upload Photos
+        </h6>
+        <div class="filesuploads my-5">
+            <div class="mb-3">
+                <!-- <label for="formFileMultiple">
+                    <div>Choose File</div>
+                    {{imageshitname}}</label> -->
+                <input class="form-control" name="image" ng2FileSelect [uploader]="uploader" accept="image/x-png,image/gif,image/jpeg"
+                   type="file" id="formFileMultiple" multiple>
+                <!-- <button class="form-control" type="button" (click)="uploader.uploadAll()"
+                    [disabled]="!uploader.getNotUploadedItems().length">
+                    Upload
+                </button> -->
+            </div>
+        </div>
+    </section>
+</div>
+<div class="container">
+    <section class=" px-5">
+        <div class="">
+            <h3 class="" id="justify ">
+                Now, let's give your hotel a title
+            </h3>
+            <p>
+                Short titles work best. Have fun with it—you can always change it later.
+            </p>
+        </div>
+        <div class="inputfieldTitle">
+            <input type="text" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"
+                placeholder="Hotel Name/Title">
+        </div>
+    </section>
+</div>
+<div class="container">
+    <section class="descriptiontitle p-5">
+        <div>
+            <h3 id="justify ">
+                Create your description
+            </h3>
+            <p>
+                Share what makes your place special.
+            </p>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                placeholder="Input Description Here"></textarea>
+        </div>
+    </section>
+</div>
+<div class="container">
+    <section class="pricesection p-5">
+        <div>
+            <h3 id="justify ">
+                Now, set your price
+            </h3>
+            <p>
+                You can change it anytime.
+            </p>
+        </div>
+        <div class="d-flex justify-content-center p-3">
+            <div class="buttonsp">
+                <div class="priceinput">
+                    <button (click)="priceInput('minus')">-</button>
+                    <input type="text" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"
+                        value="₱{{value}}">
+                    <button (click)="priceInput('add')">+</button>
+                </div>
+                <div>
+                    <h2>Per Day</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="container">
+    <section class="finalsubmit">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Agree to Terms and Conditions.
+            </label>
+        </div>
+        <div>
+            <button type="submit" (click)="uploader.uploadAll()">Submit</button>
+        </div>
+    </section>
+</div>

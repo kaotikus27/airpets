@@ -1,0 +1,38 @@
+<div class="login-section">
+    <div class="logo">
+        <img src="../assets/logos/MicrosoftTeams-image (8).png" alt="AirPets_logo">
+        <p>Welcome to AirPets</p>
+    </div>
+    <form (ngSubmit)="onSubmitLogin()">
+        <div class="input-boxes">
+            <div class="text-box">
+                <input type="text" name="username" id="username" placeholder="Email/Username"
+                    [(ngModel)]="inputLogin.username">
+                <label for="username"><img src="../assets/icons/person_FILL0_wght400_GRAD0_opsz48.svg"
+                        alt="user-ico"></label>
+            </div>
+            <div class="space"></div>
+            <div class="text-box">
+                <input type={{passwordView}} class="reg-input" name="password" id="password" placeholder="Password"
+                    [(ngModel)]="inputLogin.password">
+                <label for="password"><img src="../assets/icons/lock_FILL0_wght400_GRAD0_opsz48.svg"
+                        alt="pass-ico"></label>
+                <span class="login-eye material-symbols-outlined" (click)="passwordToggle('login')">
+                    {{passwordText}}
+                </span>
+            </div>
+        </div>
+        <div class="check">
+            <input type="checkbox" name="remember" id="remember" [(ngModel)]="inputLogin.remember">
+            <label for="remember">Remember password</label>
+        </div>
+        <div class="submit-btn">
+            <input type="submit" name="submit" id="submit" value="Continue">
+        </div>
+    </form>
+    <p class="bottom-opt">Forgot password? <span>Click Here</span></p>
+    <div class="orSignUp">
+        <p>Or</p>
+        <button class="submit-btn-bot" routerLink="/signup">Sign Up</button>
+    </div>
+</div>

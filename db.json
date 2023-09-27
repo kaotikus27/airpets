@@ -1,0 +1,281 @@
+{
+  "users": [
+    {
+      "name": "Duane",
+      "username": "Duane",
+      "email": "geronimo.gamer06@gmail.com",
+      "password": "#Duanepogi101",
+      "airpets": "false",
+      "id": 1
+    },
+    {
+      "name": "Chad",
+      "username": "chad90_",
+      "email": "chad@test.com",
+      "password": "Haha123456_",
+      "airpets": false,
+      "id": 2
+    },
+    {
+      "firstName": "Nomar",
+      "lastName": "Rubi",
+      "userName": "nomar55^",
+      "emailAddress": "nomar@gmail.com",
+      "password": "Lolol90-",
+      "airpets": false,
+      "id": 3
+    },
+    {
+      "firstName": "Nomar",
+      "lastName": "Rubi",
+      "userName": "nomar55^",
+      "emailAddress": "nomar@gmail.com",
+      "password": "Lolol90-",
+      "airpets": false,
+      "id": 4
+    }
+  ],
+  "furtelHome": [
+    {
+      "name": "Pawsome Inn",
+      "location": "Taguig City",
+      "availability": "Weekdays",
+      "price": 700,
+      "thumbnail": "../assets/image-test/pethotel-03.png",
+      "roomNum": 10,
+      "roomAvail": "5 rooms",
+      "user": "Nomar Rubi",
+      "desc": "Pawsome Hotel offers 10 comfortable rooms for pets with Taguig’s most central address. Discover carefully selected design furnishing perfectly fit for your little ones.",
+      "accomodation": [
+        "A private room",
+        "A shared room"
+      ],
+      "placeIncluded": [
+        "In-house veterinarian",
+        "Offer Pet Bath",
+        "Online Surveillance",
+        "Pet Grooming Service",
+        "Dedicated Playground",
+        "Pool for Pets",
+        "Air Conditioned"
+      ],
+      "forOwners": [
+        "WIFI",
+        "Free Parking",
+        "Waiting Area"
+      ],
+      "safety": [
+        "Smoke Alarm",
+        "Fire Extinguisher",
+        "First Aid Kit"
+      ],
+      "happyPet": true,
+      "id": 1
+    },
+    {
+      "name": "Furever Stay Hotel",
+      "location": "Taguig City",
+      "availability": "Weekdays/Weekends",
+      "price": 1000,
+      "thumbnail": "../assets/image-test/pethotel-02.jpg",
+      "roomNum": 9,
+      "roomAvail": "3 rooms",
+      "user": "Chrestian Tuazon",
+      "desc": "Furever Stay Hotel offers 9 comfortable rooms for pets with Taguig’s most central address. Discover carefully selected design furnishing perfectly fit for your little ones.",
+      "accomodation": [
+        "Handled Personally",
+        "A shared room"
+      ],
+      "placeIncluded": [
+        "In-house veterinarian",
+        "Offer Pet Bath",
+        "Online Surveillance",
+        "Pet Grooming Service",
+        "Dedicated Playground",
+        "Pool for Pets",
+        "Air Conditioned"
+      ],
+      "forOwners": [
+        "WIFI",
+        "Free Parking",
+        "Waiting Area"
+      ],
+      "safety": [
+        "Smoke Alarm",
+        "Fire Extinguisher",
+        "First Aid Kit"
+      ],
+      "happyPet": false,
+      "id": 2
+    },
+    {
+      "name": "PallyWood Hotel",
+      "location": "Taguig City",
+      "availability": "Weekdays",
+      "price": 950,
+      "thumbnail": "../assets/image-test/1.jpg",
+      "roomNum": 5,
+      "roomAvail": "1 room",
+      "user": "Joshua Bohol",
+      "desc": "PallyWood Hotel offers 5 comfortable rooms for pets with Taguig’s most central address. Discover carefully selected design furnishing perfectly fit for your little ones.",
+      "accomodation": [
+        "A private room",
+        "A shared room"
+      ],
+      "placeIncluded": [
+        "Offer Pet Bath",
+        "Online Surveillance",
+        "Pet Grooming Service",
+        "Dedicated Playground",
+        "Air Conditioned"
+      ],
+      "forOwners": [
+        "WIFI",
+        "Waiting Area"
+      ],
+      "safety": [
+        "Smoke Alarm",
+        "Fire Extinguisher",
+        "First Aid Kit"
+      ],
+      "happyPet": false,
+      "id": 3
+    },
+    {
+      "name": "House of Pets Inn",
+      "location": "Taguig City",
+      "availability": "Weekdays",
+      "price": 780,
+      "thumbnail": "../assets/image-test/pethotel-04.jpg",
+      "roomNum": 8,
+      "roomAvail": "7 rooms",
+      "user": "Duane Geronim0",
+      "desc": "House of Pets Inn offers 8 comfortable rooms for pets with Taguig’s most central address. Discover carefully selected design furnishing perfectly fit for your little ones.",
+      "accomodation": [
+        "A shared room",
+        "Handled Personally"
+      ],
+      "placeIncluded": [
+        "Offer Pet Bath",
+        "Online Surveillance",
+        "Pet Grooming Service",
+        "Dedicated Playground",
+        "Air Conditioned"
+      ],
+      "forOwners": [
+        "WIFI",
+        "Free Parking",
+        "Waiting Area"
+      ],
+      "safety": [
+        "Smoke Alarm",
+        "Fire Extinguisher",
+        "First Aid Kit"
+      ],
+      "happyPet": true,
+      "id": 4
+    },
+    {
+      "name": "Raff Days Rooms",
+      "location": "Taguig City",
+      "availability": "Weekdays",
+      "price": 1250,
+      "thumbnail": "../assets/image-test/pethotel-05.jpg",
+      "roomNum": 5,
+      "roomAvail": "2 rooms",
+      "user": "Paule Acuin",
+      "desc": "Raff Days Rooms offers 5 comfortable rooms for pets with Taguig’s most central address. Discover carefully selected design furnishing perfectly fit for your little ones.",
+      "accomodation": [
+        "Handled Personally",
+        "A private room",
+        "A shared room"
+      ],
+      "placeIncluded": [
+        "Offer Pet Bath",
+        "Online Surveillance",
+        "Pet Grooming Service",
+        "Dedicated Playground"
+      ],
+      "forOwners": [
+        "Free Parking",
+        "Waiting Area"
+      ],
+      "safety": [
+        "Smoke Alarm",
+        "Fire Extinguisher",
+        "First Aid Kit"
+      ],
+      "happyPet": false,
+      "id": 5
+    },
+    {
+      "name": "Hyatt for Cats",
+      "location": "Taguig City",
+      "availability": "Weekdays",
+      "price": 900,
+      "thumbnail": "../assets/image-test/pethotel-06.jpg",
+      "roomNum": 6,
+      "roomAvail": "5 rooms",
+      "user": "Noel Anonas",
+      "desc": "Hyatt for Cats offers 50 comfortable rooms for pets with Taguig’s most central address. Discover carefully selected design furnishing perfectly fit for your little ones.",
+      "accomodation": [
+        "A private room",
+        "A shared room"
+      ],
+      "placeIncluded": [
+        "In-house veterinarian",
+        "Offer Pet Bath",
+        "Online Surveillance",
+        "Dedicated Playground",
+        "Air Conditioned"
+      ],
+      "forOwners": [
+        "Waiting Area"
+      ],
+      "safety": [
+        "Smoke Alarm",
+        "Fire Extinguisher",
+        "First Aid Kit"
+      ],
+      "happyPet": false,
+      "id": 6
+    },
+    {
+      "name": "Boho & Bark",
+      "location": "Taguig City",
+      "availability": "Weekdays/Weekends",
+      "price": 850,
+      "thumbnail": "../assets/image-test/pethotel-07.png",
+      "roomNum": 12,
+      "roomAvail": "1 room",
+      "user": "Jennifer Povadora",
+      "desc": "Boho and Bark offers 50 comfortable rooms for pets with Taguig’s most central address. Discover carefully selected design furnishing perfectly fit for your little ones.",
+      "accomodation": [
+        "Handled Personally",
+        "A private room",
+        "A shared room"
+      ],
+      "placeIncluded": [
+        "In-house veterinarian",
+        "Offer Pet Bath",
+        "Online Surveillance",
+        "Pet Grooming Service",
+        "Dedicated Playground",
+        "Pool for Pets",
+        "Air Conditioned"
+      ],
+      "forOwners": [
+        "WIFI",
+        "Free Parking",
+        "Waiting Area"
+      ],
+      "safety": [
+        "Smoke Alarm",
+        "Fire Extinguisher",
+        "First Aid Kit"
+      ],
+      "happyPet": false,
+      "id": 7
+    }
+  ]
+}

@@ -1,0 +1,488 @@
+<div class="usermainpage-section">
+    <div class="user-page-body">
+        <div class="user-body-top">
+            <div class="user-top-left">
+                <!-- <img src="../uploads/1675064944130-469066327-EqXGQiNU8AA8qQ5.jpg" alt=""> -->
+                <div class="profpic-container">
+                    <img src={{profilepic}} alt="profile-pic" (click)="onClickPic('show')">
+                    <span (click)="onCLickEditProfile(0)">Edit Profile</span>
+                    <!-- <label for="profpic" class="custom-btn">
+                        Change image
+                    </label>
+                    <input type="file" name="image" id="profpic" ng2FileSelect [uploader]="uploader" accept="image/x-png,image/gif,image/jpeg" multiple (input)="onUploadpic()">
+                    <div class="custom-btn" (click)="uploader.uploadAll()">Test</div> -->
+                </div>
+                <div class="user-info">
+                    <h5>Hi, {{user.firstName}} {{user.lastName}}!</h5>
+                    <p>@{{user.userName}}</p>
+                    <p style="color: gray;">{{user.emailAddress}}</p>
+                    <!-- <span (click)="onCLickEditProfile(0)">Edit Profile</span> -->
+                    <button class="view-pet-btn" (click)="onClickViewPet('open')">View Pet Profile</button>
+                </div>
+            </div>
+            <div class="user-right">
+                <div>
+                    <button class="log-out-btn-mobile" (click)="logout()">Logout</button>
+                    <div [ngClass]="airpetsBtn" class="user-top-right" (click)="onClickAirpets()">
+                        <p *ngIf="!airpets">AirPets Your Home</p>
+                        <!-- <h4 style="font-weight: bold;" *ngIf="airpets && facilityNotNull">{{facilityInfo.facilityTitle}}</h4> -->
+                        <p *ngIf="airpets">Visit Dashboard</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="user-body-back row">
+            <div class="col-md-6 p-1">
+                <div class="user-body-content">
+                    <div class="title-section">
+                        <p class="title">Active transactions/reservations</p>
+                        <div class="filter-btns">
+                            <button class="btn-left" [ngClass]="transactionFilterStyle[0]" (click)="onClickFilter('transaction', 'active')">Active</button>
+                            <button class="btn-right" [ngClass]="transactionFilterStyle[1]" (click)="onClickFilter('transaction', 'reserved')">Reserved</button>
+                        </div>
+                    </div>
+                    <div class="reserve-content content-widget">
+                        <div *ngIf="transactionsNone; else transactionExists">
+                            <div class="default-card">
+                                <p>{{loadingTransaction}}</p>
+                            </div>
+                        </div>
+                        <ng-template #transactionExists>
+                            <div *ngIf="notNull">
+                                <div class="transactionReservations"
+                                    *ngFor="let transaction of bookingTransactionsInfo; index as i">
+                                    <div class="transaction-header">
+                                        <p class="title-transaction">{{facilityInfos[i].facilityTitle}}</p>
+                                        <p>{{transaction.bookingStatus}}</p>
+                                    </div>
+                                    <div class="location-container">
+                                        <img class="small-icon"
+                                            src="../assets/icons/location_on_FILL0_wght400_GRAD0_opsz48.svg"
+                                            alt="loc-icon">
+                                        <p class="facility-address">{{facilityInfos[i].facilityStreet}}
+                                            {{facilityInfos[i].facilityBrgy}}, {{facilityInfos[i].facilityCity}},
+                                            {{facilityInfos[i].facilityState}} {{facilityInfos[i].facilityZip}}</p>
+                                    </div>
+                                    <div class="transaction-details row">
+                                        <div class="petImg-container col-md-4 col-sm-5 col-3">
+                                            <img src="../uploads/{{petsBooked[i].petImg}}" alt="">
+                                        </div>
+                                        <div class="col">
+                                            <p>Transaction Number: <span>{{transaction.transactionId}}</span></p>
+                                            <p>Check-in Date: <span>{{transaction.checkinDate}}</span></p>
+                                            <p>Check-out Date: <span>{{transaction.checkoutDate}}</span></p>
+                                            <p>Payment Status: <span>{{transaction.paymentStatus}}</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="transaction-bottom">
+                                        <p>Bill: <span>₱{{transaction.totalBill}}</span></p>
+                                        <div *ngIf="isNotActive[i]; else isActive">
+                                            <button (click)="onCancelBooking(transaction.transactionId)"
+                                                [ngClass]="cancelBtn[i]" [disabled]="cancelDisabled[i]">Cancel
+                                                Reservation</button>
+                                        </div>
+                                        <ng-template #isActive>
+                                            <button class="cctv" (click)="viewCCTV(transaction.transactionId)">View
+                                                CCTV</button>
+                                        </ng-template>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 p-1">
+                <div class="user-body-content">
+                    <div class="title-section">
+                        <p class="title">History</p>
+                        <div class="filter-btns">
+                            <button class="btn-left" [ngClass]="historyFilterStyle[0]" (click)="onClickFilter('history', 'completed')">Completed</button>
+                            <button class="btn-right" [ngClass]="historyFilterStyle[1]" (click)="onClickFilter('history', 'canceled')">Cancelled</button>
+                        </div>
+                    </div>
+                    <div class="content-widget">
+                        <div *ngIf="historyNotExist; else historyExists">
+                            <div class="default-card">
+                                <p>{{loadingHistory}}</p>
+                            </div>
+                        </div>
+                        <ng-template #historyExists>
+                            <div *ngFor="let item of history; index as i">
+                                <!-- *ngIf="i < 3" -->
+                                <div class="history transactionReservations">
+                                    <div class="transaction-header">
+                                        <p class="title-transaction">{{historyFacilityInfo[history.length - i -
+                                            1].facilityTitle}}</p>
+                                        <p>{{history[history.length - i - 1].bookingStatus}}</p>
+                                    </div>
+                                    <div class="location-container">
+                                        <img class="small-icon"
+                                            src="../assets/icons/location_on_FILL0_wght400_GRAD0_opsz48.svg"
+                                            alt="loc-icon">
+                                        <p class="facility-address">{{historyFacilityInfo[history.length - i -
+                                            1].facilityStreet}}
+                                            {{historyFacilityInfo[history.length - i - 1].facilityBrgy}},
+                                            {{historyFacilityInfo[history.length - i - 1].facilityCity}},
+                                            {{historyFacilityInfo[history.length - i - 1].facilityState}}
+                                            {{historyFacilityInfo[history.length - i - 1].facilityZip}}</p>
+                                    </div>
+                                    <div class="transaction-details row">
+                                        <div class="petImg-container col-md-4 col-sm-5 col-3">
+                                            <img src="../uploads/{{historyPetInfo[history.length - i - 1].petImg}}"
+                                                alt="">
+                                        </div>
+                                        <div class="col">
+                                            <p>Transaction Number: <span>{{history[history.length - i -
+                                                    1].transactionId}}</span></p>
+                                            <p>Check-in Date: <span>{{history[history.length - i -
+                                                    1].checkinDate}}</span></p>
+                                            <p>Check-out Date: <span>{{history[history.length - i -
+                                                    1].checkoutDate}}</span></p>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="successfulTransactions[history.length - i - 1] == true; else canceled"
+                                        class="rating-btn">
+                                        <button [ngClass]="historyRatingColor[history.length - i - 1]" (click)="onClickRating(history[history.length - i - 1].transactionId,history[history.length - i - 1].isRated); getIndexRating(history.length - i -
+                                            1)">{{historyRatingText[history.length - i - 1]}}</button>
+                                    </div>
+                                    <ng-template #canceled>
+                                        <div class="rating-btn">
+                                            <button class="cancelReason" (click)="showCancelReason(history[history.length - i -
+                                            1].transactionId)">Reason for Cancellation</button>
+                                        </div>
+                                    </ng-template>
+                                    <ng-template #alreadyRated>
+
+                                    </ng-template>
+                                    <!-- <div class="transaction-bottom">
+                                        <p>Bill: <span>₱{{item.totalBill}}</span></p>
+                                    </div> -->
+                                </div>
+
+
+
+
+                            </div>
+                            <!-- <button (click)="seeMore()">See More</button>
+                            <div *ngFor="let item of history; index as i" [ngClass]="visible">
+                                <div class="history transactionReservations" *ngIf="i >= 3">
+                                    <div class="transaction-header">
+                                        <p class="title-transaction">{{historyFacilityInfo[history.length - i - 1].facilityTitle}}</p>
+                                        <p>{{history[history.length - i - 1].bookingStatus}}</p>
+                                    </div>
+                                    <div class="location-container">
+                                        <img class="small-icon" src="../assets/icons/location_on_FILL0_wght400_GRAD0_opsz48.svg"
+                                            alt="loc-icon">
+                                        <p class="facility-address">{{historyFacilityInfo[history.length - i - 1].facilityStreet}}
+                                            {{historyFacilityInfo[history.length - i - 1].facilityBrgy}}, {{historyFacilityInfo[history.length - i - 1].facilityCity}},
+                                            {{historyFacilityInfo[history.length - i - 1].facilityState}} {{historyFacilityInfo[history.length - i - 1].facilityZip}}</p>
+                                    </div>
+                                    <div class="transaction-details row">
+                                        <div class="petImg-container col-md-4 col-sm-5 col-3">
+                                            <img src="../uploads/{{historyPetInfo[history.length - i - 1].petImg}}" alt="">
+                                        </div>
+                                        <div class="col">
+                                            <p>Transaction Number: <span>{{history[history.length - i - 1].transactionId}}</span></p>
+                                            <p>Check-in Date: <span>{{history[history.length - i - 1].checkinDate}}</span></p>
+                                            <p>Check-out Date: <span>{{history[history.length - i - 1].checkoutDate}}</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Rating Modal -->
+<div class="modal-container ratemodal" *ngIf="modalRate">
+    <div class="modal-box-container">
+        <div class="modal-box">
+            <div class="row modal-header">
+                <div class="col">
+                    <p> Rate this Hotel/Service</p>
+                </div>
+            </div>
+            <div class="modal-body rate-body">
+                <div class="row hotel-name">
+                    <div class="col d-flex align-items-center flex-column">
+                        <p>Rate {{ratingFacilityInfos.facilityTitle}}</p>
+                        <div class="stars mt-3">
+                            <i class="fa fa-star-o" (click)="rating = 1" [ngClass]="{ 'active': rating >= 1 }"></i>
+                            <i class="fa fa-star-o" (click)="rating = 2" [ngClass]="{ 'active': rating >= 2 }"></i>
+                            <i class="fa fa-star-o" (click)="rating = 3" [ngClass]="{ 'active': rating >= 3 }"></i>
+                            <i class="fa fa-star-o" (click)="rating = 4" [ngClass]="{ 'active': rating >= 4 }"></i>
+                            <i class="fa fa-star-o" (click)="rating = 5" [ngClass]="{ 'active': rating >= 5 }"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row comment-box ">
+                    <form #myForm="ngForm">
+                        <div class="col ">
+                            <p>Add Comment</p>
+                            <textarea (input)="onInputChange()" [(ngModel)]="comment" rows="6" cols="20" name="comment"
+                                form="usrform">
+                            </textarea>
+                            <p>{{comment.length}}/{{maxChars}}</p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="rating-modal-footer d-flex justify-content-end">
+                    <button class="btn btn-primary-outline me-5"
+                        (click)="submitRating(ratingBookingInfos.facilityId, ratingBookingInfos.petId, ratingBookingInfos.transactionId)">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-back" (click)="onClickCloseRating()"></div>
+</div>
+
+<!-- Profile Pic Modal -->
+<div class="modal-container modalProf" [ngClass]="modalProf">
+    <div class="modal-box-container">
+        <div class="modal-box">
+            <div class="edit-header">
+                <p>Change Profile Picture</p>
+            </div>
+            <div class="profpicview-container">
+                <img src={{profilepicView}} alt="profile-pic">
+            </div>
+            <div class="upload-container">
+                <label for="profpic" class="custom-btn">
+                    Change image
+                </label>
+                <p>{{filename}}</p>
+                <input type="file" name="image" id="profpic" ng2FileSelect [uploader]="uploader"
+                    accept="image/x-png,image/gif,image/jpeg" (input)="onSelectPic()">
+                <label class="custom-btn" (click)="confirmUpload()">Confirm Upload</label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-back" (click)="onClickPic('close')"></div>
+</div>
+
+
+
+<!-- Edit Profile Modal -->
+<div class="modal-container" *ngIf="editModal">
+    <div class="modal-box-container">
+        <div class="modal-box">
+            <div class="edit-header">
+                <img src="../assets/icons/close_FILL0_wght400_GRAD0_opsz48 (1).svg" alt="close"
+                    (click)="onCLickEditProfile(1)">
+                <p>Edit Profile</p>
+            </div>
+            <div class="edit-profile-body">
+                <div class="edit-profile-form">
+                    <div class="top-form row">
+                        <div class="col-md-6 input-box">
+                            <label for="firstname">Change Firstname</label>
+                            <input type="text" name="firstname" id="firstname" placeholder="Edit firstname"
+                                [(ngModel)]="editProf.firstName">
+                        </div>
+                        <div class="col-md-6 input-box">
+                            <label for="lastname">Change Lastname</label>
+                            <input type="text" name="lastname" id="lastname" placeholder="Edit lastname"
+                                [(ngModel)]="editProf.lastName">
+                        </div>
+                        <div class="col-md-6 input-box">
+                            <label for="username">Change Username</label>
+                            <input type="text" name="username" id="username" placeholder="Edit username"
+                                [(ngModel)]="editProf.username">
+                        </div>
+                        <div class="col-md-6 input-box">
+                            <label for="email">Change Email Address</label>
+                            <input type="text" name="email" id="email" placeholder="edituserprofile@airpets.com"
+                                [(ngModel)]="editProf.email">
+                        </div>
+                    </div>
+                    <div class="pass-row">
+                        <div class="input-pass">
+                            <label for="password">Enter password to confirm</label>
+                        </div>
+                        <div class="pass-top input-pass input-box-pass">
+                            <input type={{passwordView}} name="password" id="password" placeholder="Enter password"
+                                [(ngModel)]="password" (input)="inputPass()" [maxlength]="18">
+                            <span class="pass-eye material-symbols-outlined" (click)="passwordToggle('editProf')">
+                                {{passwordText}}
+                            </span>
+                        </div>
+                        <div class="input-pass input-btn">
+                            <button [ngClass]="buttonState" (click)="onEditProf()"
+                                [disabled]="disabled1">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="change-pass-form">
+                    <h5>Change password</h5>
+                    <div class="change-pass-body">
+                        <div class="input-change-pass pass-bottom">
+                            <label for="currentpass">Enter current password</label>
+                            <input type={{passwordViewChangePass[0]}} name="currentpass" id="currentpass"
+                                placeholder="Enter current password" [(ngModel)]="changepassword.current"
+                                (input)="inputRenewPass()">
+                            <span class="pass-eye-bottom material-symbols-outlined"
+                                (click)="passwordToggle('changePassOriginal')">
+                                {{passwordTextChangePass[0]}}
+                            </span>
+                        </div>
+                        <div class="input-change-pass pass-bottom">
+                            <label for="newpass">Enter new password</label>
+                            <input type={{passwordViewChangePass[1]}} name="newpass" id="newpass"
+                                placeholder="Enter new password" [(ngModel)]="changepassword.new"
+                                (input)="inputRenewPass()">
+                            <span class="pass-eye-bottom material-symbols-outlined"
+                                (click)="passwordToggle('changePassNew')">
+                                {{passwordTextChangePass[1]}}
+                            </span>
+                        </div>
+                        <div class="input-change-pass pass-bottom">
+                            <label for="newpass2">Re-type new password</label>
+                            <input type={{passwordViewChangePass[1]}} name="newpass2" id="newpass2"
+                                placeholder="Re-type new password" [(ngModel)]="changepassword.new2"
+                                (input)="inputRenewPass()">
+                            <span class="pass-eye-bottom material-symbols-outlined"
+                                (click)="passwordToggle('changePassNew')">
+                                {{passwordTextChangePass[1]}}
+                            </span>
+                        </div>
+                    </div>
+                    <p [ngClass]="hideError">{{passError}}</p>
+                    <button [ngClass]="buttonState2" (click)="onCLickChangePass()"
+                        [disabled]="disabled2">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-back" (click)="onCLickEditProfile(1)"></div>
+</div>
+
+
+<!-- Pet Modal -->
+<div class="modal-container" *ngIf="petModal">
+    <div class="modal-box-container pet-container">
+        <div class="modal-box">
+            <div class="pet-header">
+                <img src="..\assets\icons\arrow_back_FILL0_wght400_GRAD0_opsz48.png" *ngIf="!petProfile"
+                    (click)="petBack()">
+                <p>{{petHeader}}</p>
+            </div>
+            <div class="pet-content-body">
+                <div class="pet-container-body" *ngIf="petProfile; else addPet">
+                    <div class="no-content" *ngIf="noPet; else hasPets">
+                        No registered pet
+                    </div>
+                    <ng-template #hasPets class="pet-profile-list">
+                        <div *ngFor="let pet of petsRegisteredView" class="petCard">
+                            <p class="p-main petName-header">Pet Name: <span>{{pet.petName}}</span></p>
+                            <!-- <p>Pet ID: <span>{{pet.petId}}</span></p> -->
+                            <div class="petinfo-container row">
+                                <div class="petImg-column col-4">
+                                    <img src="..\uploads\{{pet.petImg}}" alt="">
+                                </div>
+                                <div class="petinfos-column col-8">
+                                    <p class="p-main">Pet Type: <span>{{pet.petType}}</span></p>
+                                    <p class="p-main">Pet Breed: <span>{{pet.petBreed}}</span></p>
+                                    <p class="p-main">Status: <span>"{{pet.bookingStatus | uppercase}}"</span></p>
+                                    <div class="deletePet-container">
+                                        <a class="deletePet" (click)="onClickDeletePetBtn(pet)">Delete Pet</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <div class="add-pet-btn-container">
+                        <button (click)="onClickAddPetBtn()" class="add-pet-btn">Add New Pet <img
+                                src="../assets/icons/add_FILL0_wght700_GRAD0_opsz48.svg" alt=""></button>
+                    </div>
+                </div>
+                <ng-template #addPet>
+                    <div class="pet-form">
+                        <div class="row pet-input-container">
+                            <div class="col-3 petLabel">
+                                <label for="petName">Pet Name:</label>
+                            </div>
+                            <div class="col-9 petInput">
+                                <input type="text" name="petName" id="petName" [(ngModel)]="petInput.petName">
+                            </div>
+                        </div>
+                        <!-- <div class="row pet-input-container">
+                            <div class="col-3 petLabel">
+                                <label for="petType">Pet Type:</label>
+                            </div>
+                            <div class="col-9 petInput pet-type-drpdwn">
+                                <input type="button" name="petType" id="petType">
+                                <img src="../assets/icons/arrow_drop_down_FILL0_wght400_GRAD0_opsz48.png" alt="">
+                            </div>
+                        </div> -->
+                        <div class="row pet-input-container">
+                            <div class="col-3 petLabel">
+                                <label>Pet Type:</label>
+                            </div>
+                            <div class="selectform col-9 petInput">
+                                <select class="form-select" aria-label="Default select example"
+                                    [(ngModel)]="petInput.petType">
+                                    <option selected value="Dog">Dog</option>
+                                    <option value="Cat">Cat</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row pet-input-container">
+                            <div class="col-3 petLabel">
+                                <label for="petBreed">Pet Breed:</label>
+                            </div>
+                            <div class="col-9 petInput">
+                                <input type="text" name="petBreed" id="petBreed" [(ngModel)]="petInput.petBreed">
+                            </div>
+                        </div>
+                        <!-- <div class="row pet-input-container">
+                            <div class="col-3 petLabel">
+                                <label for="petGender">Pet Gender:</label>
+                            </div>
+                            <div class="col-9 petInput">
+                                <input type="text" name="petGender" id="petGender" [(ngModel)]="petInput.petGender">
+                            </div>
+                        </div> -->
+                        <div class="row pet-input-container">
+                            <div class="col-3 petLabel">
+                                <label>Pet Gender:</label>
+                            </div>
+                            <div class="selectform col-9 petInput">
+                                <select class="form-select" aria-label="Default select example"
+                                    [(ngModel)]="petInput.petGender">
+                                    <option selected value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="upload-pet-img-container">
+                            <div class="pet-img-filename">
+                                <p>{{filename}}</p>
+
+                                <label for="petImg" class="pet-img-btn" (click)="petPicName($event)">
+                                    Add Photo
+                                    <img src="../assets/icons/download_FILL0_wght700_GRAD0_opsz48.svg" alt="">
+                                </label>
+                            </div>
+                        </div>
+                        <input type="file" name="image" id="petImg" ng2FileSelect
+                            accept="image/x-png,image/gif,image/jpeg" [uploader]="uploader"
+                            (input)="onSelectPicPet($event.returnValue)">
+                    </div>
+                    <button class="register-pet-btn" (click)="registerPet()">Register Pet</button>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+    <div class="modal-back" (click)="onClickViewPet('close')"></div>
+</div>

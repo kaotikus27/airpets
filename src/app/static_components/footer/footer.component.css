@@ -1,0 +1,60 @@
+.footer-section {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  padding: 0px 20px;
+}
+.footer-section p {
+  margin: 0;
+}
+
+.footer-content {
+  max-width: 1300px;
+  margin: auto;
+}
+
+.footer-bottom-body {
+  max-height: none;
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 15px;
+}
+.footer-bottom-body .footer-left {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+}
+.footer-bottom-body .footer-left .copyright {
+  padding-right: 15px;
+  display: flex;
+}
+.footer-bottom-body .footer-left .copyright p {
+  padding-right: 5px;
+}
+.footer-bottom-body .footer-left p {
+  padding-right: 15px;
+}
+.footer-bottom-body .footer-right {
+  display: flex;
+  justify-content: flex-end;
+}
+.footer-bottom-body .footer-right p {
+  padding-left: 15px;
+  cursor: pointer;
+}
+.footer-bottom-body .footer-right p:hover {
+  color: #8B488C;
+}
+
+@media only screen and (max-width: 656px) {
+  .footer-bottom-body .footer-left {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 547px) {
+  .footer-bottom-body .footer-left .copyright {
+    flex-direction: column;
+  }
+}/*# sourceMappingURL=footer.component.css.map */

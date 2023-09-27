@@ -1,0 +1,162 @@
+<div class="dashboard-body">
+    <div class="dashboard-container row">
+        <div class="dashboard-col-container col-md-6">
+            <div class="dashboard-col">
+                <div class="dashboard-header">
+                    <div>
+                        <p>Your Facility: <span>{{facilityInfos.facilityTitle}}</span></p>
+                        <div class="location-container">
+                            <img class="small-icon" src="../assets/icons/location_on_FILL0_wght400_GRAD0_opsz48.svg" alt="loc-icon">
+                            <p>{{facilityInfos.facilityStreet}} {{facilityInfos.facilityBrgy}}, {{facilityInfos.facilityCity}}, {{facilityInfos.facilityState}} {{facilityInfos.facilityZip}}</p>
+                        </div>
+                    </div>
+                    <div class="buttons-right">
+                        <button class="log-out-btn-mobile" (click)="logout()">Logout</button>
+                        <button class="go-to-profile" (click)="onClickProfile()">Profile</button>
+                    </div>
+                </div>
+                <div class="dashboard-content">
+                    <div class="analytics row">
+                        <div class="analytics-container col-12 col-sm-6 col-md-6">
+                            <div class="analytics-widget">
+                                <div class="icon-container">
+                                    <img src="../assets/icons/pets_FILL0_wght400_GRAD0_opsz48.svg">
+                                </div>
+                                <div class="analytics-text analytics-content">
+                                    <span>Today's Guests</span>
+                                    <p>{{guestDogs}} Dogs</p>
+                                    <p>{{guestCats}} Cats</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="analytics-container col-12 col-sm-6 col-md-6">
+                            <div class="analytics-widget">
+                                <div class="icon-container">
+                                    <img src="../assets/icons/online-surveillance.png">
+                                </div>
+                                <div class="analytics-text analytics-content">
+                                    <span>Customer’s active CCTV</span>
+                                    <p>Active: {{cctvActive}}</p>
+                                    <p>Inactive: {{cctvInActive}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="analytics-container col-12">
+                            <div class="analytics-widget">
+                                <div class="icon-container">
+                                    <img src="../assets/icons/event_available_FILL0_wght400_GRAD0_opsz48.svg">
+                                </div>
+                                <div class="analytics-text text-many">
+                                    <div class="analytics-content" *ngFor="let room of analyticsRooms">
+                                        <span>{{room.name}}</span>
+                                        <p>{{room.value}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reservations">
+                        <div class="reservations-content">
+                            <h5>Reservations</h5>
+                        </div>
+                        <div class="content-widget2">
+                            <div class="nothingToShow" *ngIf="!transactionsExist; else newTransactions">
+                                <p>{{loadingTransaction}}</p>
+                            </div>
+                            <ng-template #newTransactions>
+                                <div class="transactions" *ngFor="let transaction of transactions; index as i">
+                                    <div class="transaction-head">
+                                        <p>Transaction No: {{transaction.transactionId}}</p>
+                                        <div class="status">
+                                            <p>Status: {{transaction.bookingStatus}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-left">
+                                            <div class="profpic-container">
+                                                <img src="{{transactionUsers[i].imgUrl}}" alt="">
+                                            </div>
+                                            <div class="row user-info">
+                                                <div class="info-container col-lg-6 col-md-12 col-sm-6">
+                                                    <p>Name: {{transactionUsers[i].firstName}} {{transactionUsers[i].lastName}}</p>
+                                                    <p>Pet Name: {{petInfos[i].petName}}</p>
+                                                    <p>Pet Type: {{petInfos[i].petType}}</p>
+                                                    <p>Payment Status: {{transaction.paymentStatus}}</p>
+                                                </div>
+                                                <div class="info-container col-lg-6 col-md-12 col-sm-6">
+                                                    <p>CCTV: {{transactionAddons[i].petCCTV}}</p>
+                                                    <p>Check-in: {{transaction.checkinDate}}</p>
+                                                    <p>Check-out: {{transaction.checkoutDate}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bottom-buttons">
+                                        <button class="cctv" [disabled]="disabledCCTV[i]" [ngClass]="disabledVid[i]" (click)="viewCCTV(transaction.transactionId)">View CCTV</button>
+                                        <!-- <button class="delete" [disabled]="disabledDelete[i]" [ngClass]="disabledDel[i]">Cancel Reservation</button> -->
+                                        <div *ngIf="notActiveBook[i]; else activate">
+                                            <button class="delete" (click)="onCancelBooking(transaction.transactionId)" [ngClass]="cancelBtn[i]" [disabled]="cancelDisabled[i]">Cancel Reservation</button>
+                                        </div>
+                                        <ng-template #activate>
+                                            <div *ngIf="notActive[i]; else active">
+                                                <button class="activate" (click)="onStartAccomodation(transaction.transactionId)">Start Accomodation</button>
+                                            </div>
+                                            <ng-template #active>
+                                                <div *ngIf="notEndAccomodation[i]; else endAccomodation">
+                                                    <button class="active">Accomodation Ongoing...</button>
+                                                </div>
+                                                <ng-template #endAccomodation>
+                                                    <button class="endAccom" (click)="onEndAccom(transaction.transactionId)">End Accomodation</button>
+                                                </ng-template>
+                                            </ng-template>
+                                        </ng-template>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-col-container col-md-6">
+            <div class="dashboard-col notifications-col">
+                <h5>History</h5>
+                <div class="content-widget">
+                    <div class="nothingToShow" *ngIf="!historyExist; else historyShow">
+                        <p>{{loadingHistory}}</p>
+                    </div>
+                    <ng-template #historyShow>
+                        <div class="history transactions" *ngFor="let item of historyBookings; index as i">
+                            <div class="transaction-head">
+                                <p>Transaction No: {{historyBookings[historyBookings.length - i - 1].transactionId}}</p>
+                                <div class="status" [ngClass]="statusHistory[historyBookings.length - i - 1]">
+                                    <p>Status: {{historyBookings[historyBookings.length - i - 1].bookingStatus}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-left">
+                                    <div class="profpic-container">
+                                        <img src="{{historyUsers[historyBookings.length - i - 1].imgUrl}}" alt="">
+                                    </div>
+                                    <div class="row user-info">
+                                        <div class="info-container col-lg-6 col-md-12 col-sm-6">
+                                            <p>Name: {{historyUsers[historyBookings.length - i - 1].firstName}} {{historyUsers[historyBookings.length - i - 1].lastName}}</p>
+                                            <p>Pet Name: {{historyPetInfos[historyBookings.length - i - 1].petName}}</p>
+                                            <p>Pet Type: {{historyPetInfos[historyBookings.length - i - 1].petType}}</p>
+                                        </div>
+                                        <div class="info-container col-lg-6 col-md-12 col-sm-6">
+                                            <!-- <p>CCTV: {{historyAddons[i].petCCTV}}</p> -->
+                                            <p>Check-in: {{historyBookings[historyBookings.length - i - 1].checkinDate}}</p>
+                                            <p>Check-out: {{historyBookings[historyBookings.length - i - 1].checkoutDate}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

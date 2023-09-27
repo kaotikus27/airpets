@@ -1,0 +1,259 @@
+<div class="header-section" *ngIf="main">
+    <p [ngClass]="headerOther" class="other-header">{{headerNotMain}}</p>
+    <div class="header-body">
+        <div class="logo" routerLink="/">
+            <img src="../assets/logos/MicrosoftTeams-image (8).png" alt="AirPets_logo">
+            <p>Air<span>Pets</span></p>
+        </div>
+        <div class="middle-nav" [ngClass]="mobileDispAsideFromMainMiddleNav">
+            <div class="search-bar-container" [ngClass]="mobileDispAsideFromMain">
+                <form>
+                    <!-- <div class="row"> -->
+                    <!-- <div class="col-4 search-label">
+                        <label for="search">Search Places</label>
+                    </div> -->
+                    <div class="search-box">
+                        <form (ngSubmit)="onSearch()">
+                            <input type="text" name="search" id="search" placeholder="Search Location..."
+                                [(ngModel)]="searchLoc">
+                            <button type="submit">
+                                <img src="../assets/icons/search_FILL0_wght400_GRAD0_opsz48.svg" alt="search-button">
+                            </button>
+                        </form>
+
+                    </div>
+
+                    <!-- </div> -->
+                </form>
+            </div>
+            <!-- <div class="more" *ngIf="moreFilter">
+                <button type="submit" class="btn btn d-flex align-items-center" (click)="onclick()">
+                    <p class="filterBy" style="color: rgb(98, 98, 98);">Filter by</p>
+                    <span class="material-symbols-outlined" style="padding-bottom: 10px;">
+                        expand_more
+                    </span>
+                </button>
+            </div> -->
+        </div>
+        <div class="header-right">
+            <div class="airpets-your-home">
+                <a routerLink={{airpet.link}}>{{airpet.name}}</a>
+            </div>
+            <ng-template #loginBtn>
+                <div class="user-container" (click)="onClick(0)">
+                    <div class="user-container-content">
+                        <img class="menu-icon" src="../assets/icons/menu_FILL0_wght400_GRAD0_opsz48 (1).svg"
+                            alt="menu-icon">
+                        <img class="user-icon" src="../assets/icons/account_circle_FILL0_wght400_GRAD0_opsz48.svg"
+                            alt="user-pic">
+                    </div>
+                </div>
+            </ng-template>
+            <div *ngIf="currentUser$; else loginBtn">
+                <div class="user-container" (click)="onClickLogged(0)">
+                    <div class="user-container-content">
+                        <img class="menu-icon" src="../assets/icons/menu_FILL0_wght400_GRAD0_opsz48 (1).svg"
+                            alt="menu-icon">
+                        <img class="user-icon" src={{profpic}}>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="top-tab" *ngIf="visible">
+    <div class="top-options" id="top-options">
+        <div class="option" *ngFor="let tab of tabs; index as i" (click)="onClick(i)" [ngClass]="active[i]">
+            <img src={{tab.img}} alt="imglink">
+            <p>{{tab.name}}</p>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- Modal on login -->
+<div class="modal-container-login" *ngIf="modalLogged">
+    <div class="modal-user-container">
+        <div class="modal-user-box">
+            <div class="top-user-options options">
+                <p (click)="onSelectUserBox(0)">Profile</p>
+                <p (click)="onSelectUserBox(1)">Wishlist</p>
+            </div>
+            <div class="options">
+                <p (click)="onSelectUserBox(2)">Logout</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-back-user" (click)="onClickLogged(1)"></div>
+</div>
+
+
+<!-- Mobile-navbar -->
+<div class="header-section-mobile {{mobileViewDisplay}}">
+    <div class="header-mobile-body">
+        <div class="menu" *ngFor="let menu of mobileMenus; index as i" [ngClass]="mobileBtn[i]"
+            (click)="onSelectMobileBtn(i)" routerLink={{menu.link}}>
+            <img src={{menu.img}}>
+            <p>{{menu.name}}</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal LOGIN/REGISTER-->
+<div class="modal-container" *ngIf="modal">
+    <div class="modal-box">
+        <div class="modal-selection">
+            <div class="modal-tab login-tab" [ngClass]="selection[0]" (click)="onClickSelection(0)">
+                <p>Log in</p>
+            </div>
+            <div class="space"></div>
+            <div class="modal-tab register-tab" [ngClass]="selection[1]" (click)="onClickSelection(1)">
+                <p>Sign up</p>
+            </div>
+        </div>
+        <div>
+            <div class="logo-modal">
+                <img src="../assets/logos/MicrosoftTeams-image (8).png" alt="AirPets_logo">
+                <p>Welcome to AirPets</p>
+            </div>
+        </div>
+        <h4>{{headerTitle}}</h4>
+
+        <!-- Login -->
+        <div *ngIf="login">
+            <form (ngSubmit)="onSubmit(0)">
+                <div class="input-boxes">
+                    <div class="text-box">
+                        <input type="text" name="username" id="username" placeholder="Email/Username"
+                            [(ngModel)]="inputLogin.username">
+                        <label for="username"><img src="../assets/icons/person_FILL0_wght400_GRAD0_opsz48.svg"
+                                alt="user-ico"></label>
+                    </div>
+                    <div class="space"></div>
+                    <div class="text-box">
+                        <input type={{passwordView}} name="password" id="password" placeholder="Password"
+                            [(ngModel)]="inputLogin.password">
+                        <label for="password"><img src="../assets/icons/lock_FILL0_wght400_GRAD0_opsz48.svg"
+                                alt="pass-ico"></label>
+                        <span class="login-eye material-symbols-outlined" (click)="passwordToggle('login')">
+                            {{passwordText}}
+                        </span>
+                    </div>
+                </div>
+                <div class="check">
+                    <input type="checkbox" name="remember" id="remember" [(ngModel)]="inputLogin.remember">
+                    <label for="remember">Remember password</label>
+                </div>
+                <div class="submit-btn-login">
+                    <!-- <div class="spinner-border spinner-border-sm text-light" role="status"></div> -->
+                    <input type="submit" name="submit" id="submit" value="Submit">
+                </div>
+            </form>
+            <p class="bottom-opt">Forgot password? <span (click)="onClick(2)">Click Here</span></p>
+
+        </div>
+
+        <!-- Register -->
+        <div *ngIf="!login">
+            <form class="form-reg" (ngSubmit)="onSubmit(1)">
+                <div class="input-container name-container row">
+                    <div class="col-md-6 name-col name-left">
+                        <label for="firstname-reg">{{labels[5]}}</label>
+                        <input class="reg-inp" type="text" name="fistname-reg" id="firstname-reg"
+                            placeholder="First Name" [(ngModel)]="inputReg[5]" (input)="onInputReg(5)">
+                        <div class="error-style" *ngIf="errorMessage">{{error[5]}}</div>
+                    </div>
+                    <div class="col-md-6 name-col name-right">
+                        <label for="lastname-reg">{{labels[6]}}</label>
+                        <input class="reg-inp" type="text" name="lastname-reg" id="lastname-reg" placeholder="Last Name"
+                            [(ngModel)]="inputReg[6]" (input)="onInputReg(6)">
+                        <div class="error-style" *ngIf="errorMessage">{{error[6]}}</div>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label for="username-reg">{{labels[0]}} <span class="label-req">(Username must consist of
+                            alphanumeric characters)</span></label>
+                    <input class="reg-inp" type="text" name="username-reg" id="username-reg" [maxlength]="18"
+                        placeholder="Username" [(ngModel)]="inputReg[0]" (input)="onInputReg(0)">
+                    <div class="error-style" *ngIf="errorMessage">{{error[0]}}</div>
+                </div>
+                <div class="input-container">
+                    <label for="email-reg">{{labels[1]}}</label>
+                    <input class="reg-inp" type="email" name="email-reg" id="email-reg" placeholder="Email Address"
+                        [(ngModel)]="inputReg[1]" (input)="onInputReg(1)">
+                    <div class="error-style" *ngIf="errorMessage">{{error[1]}}</div>
+                </div>
+                <div class="input-container">
+                    <label for="password-reg">{{labels[2]}} <span class="label-req">(Password must consist of
+                            alphanumeric characters)</span></label>
+                    <input class="reg-inp" type={{passwordView}} name="password-reg" id="password-reg"
+                        [maxlength]="18" placeholder="Password" [(ngModel)]="inputReg[2]" (input)="onInputReg(2)">
+                    <span class="reg-eye material-symbols-outlined" (click)="passwordToggle('reg')">
+                        {{passwordText}}
+                    </span>
+                    <div class="error-style" *ngIf="errorMessage">{{error[2]}}</div>
+                </div>
+                <div class="input-container">
+                    <label for="password-reg-retype">{{labels[3]}}</label>
+                    <input class="reg-inp" type={{passwordView}} name="password-reg-retype" id="password-reg-retype"
+                        [maxlength]="18" placeholder="Retype Password" [(ngModel)]="inputReg[3]"
+                        (input)="onInputReg(3)">
+                    <span class="reg-eye material-symbols-outlined" (click)="passwordToggle('reg')">
+                        {{passwordText}}
+                    </span>
+                    <div class="error-style" *ngIf="errorMessage">{{error[3]}}</div>
+                </div>
+                <div class="agree">
+                    <input type="checkbox" name="agree" id="agree" [(ngModel)]="inputReg[4]" (input)="onInputReg(4)">
+                    <label for="agree" [ngClass]="errorAgree">Agree to Terms and Conditions</label>
+                </div>
+                <div class="submit-btn-register">
+                    <input type="submit" name="submit" id="submit" value="Submit">
+                </div>
+            </form>
+
+            <p class="bottom-opt">Already have an account? <span (click)="onClick(3)">Login</span></p>
+        </div>
+        <div class="modal-footer">
+            <p>AirPets 2022</p>
+            <p>Read Privacy Policy and Terms</p>
+        </div>
+    </div>
+    <div class="modal-back" (click)="onClick(1)"></div>
+</div>
+
+
+
+<!-- fogot password modal -->
+<div class="modal-container" *ngIf="modalforgotpass">
+    <div class="modal-box modal-forgotpass">
+        <div class="mb-5 mt-5">
+            <div class="logo-modal">
+                <img src="../assets/logos/MicrosoftTeams-image (8).png" alt="AirPets_logo">
+                <p>Generate New Password</p>
+            </div>
+        </div>
+        <div>
+            <form class="form-reg" (ngSubmit)="onSubmit(2)">
+                <div class="input-container mb-4">
+                    <label for="email-forgot">Email Address</label>
+                    <input class="reg-inp" type="text" name="email-forgot" id="email-forgot" placeholder="Email Address"
+                        [(ngModel)]="emailForgot" (input)="onInputForgotPass()">
+                    <div class="error-style" *ngIf="errorMessageforgot">{{errorForgot}}</div>
+                </div>
+                <div class="submit-btn-forgotpass mb-5">
+                    <input class="forgotpassbtn" type="submit" name="submit" id="submit"
+                        value="Send temporary password">
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <p>AirPets 2022</p>
+            <p>Read Privacy Policy and Terms</p>
+        </div>
+    </div>
+    <div class="modal-back" (click)="onClick(4)"></div>
+</div>

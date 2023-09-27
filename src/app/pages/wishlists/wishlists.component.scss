@@ -1,0 +1,105 @@
+.wishlist-section{
+    max-width: 1300px;
+    min-height: 550px;
+    margin: auto;
+    padding: 20px 30px;
+    text-align: center;
+    .wishlists-head{
+        padding-bottom: 20px;
+    }
+    h5{
+        margin: 0;
+        font-size: 30px;
+        font-weight: 600;
+        padding-bottom: 20px;
+    }
+    p{
+        margin: 0;
+    }
+    .top{
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+.routeToLogin{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: none;
+    width: max-content;
+    background-color: #BB00B4;
+    width: 100%;
+    height: 50px;
+    max-width: 150px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;  
+    margin: auto;
+}
+
+.wishlist-body{
+    text-align: left;
+    max-width: 1200px;
+    margin: auto;
+    .thumbnail-container{
+        justify-content: stretch;
+        position: relative;
+    }
+    img{
+        width: 100%;
+        border-radius: 20px;
+        border: 2px solid #929292;
+        object-fit: cover;
+        height: 100%;
+        position: absolute;
+    }
+    .wish-container{
+        min-height: 120px;
+        padding: 5px 0px;
+    }
+    .info-container{
+        padding: 5px 20px;
+    }
+    .wish-row{
+        border-bottom: 2px solid #929292;
+    }
+    .price-container{
+        font-weight: 600;
+        padding-top: 10px;
+    }
+    .book-btn-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        button{
+            border: none;
+            margin: 5px 0px;
+            border-radius: 40px;
+            color: white;
+        }
+        .remove-btn{
+            background-color: #5A5A5A;
+            &:hover{
+                background-color: #4e4e4e;
+            }
+        }
+        .book-btn{
+            background-color: #BB00B4;
+            &:hover{
+                background-color: #8B488C;
+            }
+        }
+    }
+}
+
+.loading{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    color: #5A5A5A;
+    font-size: 20px;
+}

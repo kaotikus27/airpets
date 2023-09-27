@@ -1,0 +1,130 @@
+<div class="payment-section">
+    <div class="container-row row ">
+        <div class="col-container col-lg-6 col-md-6">
+            <div class="leftcol">
+                <div class="payment-top">
+                    <div class="back-container" (click)="onBack()">
+                        <img class="arrow-back" src="../assets/icons/arrow_back_FILL0_wght400_GRAD0_opsz48.png">
+                    </div>
+                    <p>Payment</p>
+                </div>
+                <div class="pay-body">
+                    <h5 class="pb-3"> Pay with </h5>
+                    <div class="col mb-3">
+                        <select style="color: gray;" class="form-select" aria-label="Default select example"
+                            (click)="onSelectPayment()" [(ngModel)]="paymentMethod">
+                            <option selected value="selectpayment">Select Payment Method...</option>
+                            <option value="card">Debit or Credit Card </option>
+                            <option value="cash">Cash</option>
+                        </select>
+                    </div>
+                    <div class="financial-services">
+                        <div class="financial-services-widget" *ngFor="let card of financialServices; index as i">
+                            <label for={{card.name}} style={{cardS}} [ngClass]="cardStyle[i]"><img
+                                    src={{card.icon}}></label>
+                            <input type="radio" name="card" id={{card.name}} (click)="onSelectCard(card.name)"
+                                [disabled]="disabledInputCard">
+                        </div>
+                        <!-- <div class="financial-services-widget">
+                            <label for="visa"><img src="../assets/icons/Visa_Logo.png"></label>
+                            <input type="radio" name="card" id="visa" (click)="onSelectCard('visa')">
+                        </div>
+                        <div class="financial-services-widget">
+                            <label for="mastercard"><img src="../assets/icons/MasterCard_early_1990s_logo.png"></label>
+                            <input type="radio" name="card" id="mastercard" (click)="onSelectCard('mastercard')">
+                        </div> -->
+                    </div>
+                    <div class="col mb-2">
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm" placeholder="Card Number"
+                                [disabled]="disabledInput" [(ngModel)]="cardDetails.cardNum">
+                        </div>
+                    </div>
+                    <div class="col d-flex mb-2 ">
+                        <div class="input-group input-group-sm mb-3 me-1">
+                            <input type="month" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm" placeholder="Card Expiration"
+                                [disabled]="disabledInput" [(ngModel)]="cardDetails.cardExp">
+                        </div>
+                        <div class="input-group input-group-sm mb-3 ms-1">
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm" placeholder="CCV" maxlength="3"
+                                [disabled]="disabledInput" [(ngModel)]="cardDetails.cardCCV">
+                        </div>
+                    </div>
+                    <div class="col pb-4">
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="number" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm" placeholder="Zip Code"
+                                [disabled]="disabledInput" [(ngModel)]="cardDetails.zipCode">
+                        </div>
+                    </div>
+                </div>
+                <div class="pay-bottom">
+                    <!-- <div class="row comment-box ">
+                        <form #myForm="ngForm">
+                            <div class="col ">
+                                <p>Add Comment</p> 
+                                <textarea (input)="onInputChange()" [(ngModel)]="comment" name="comment" form="usrform"> 
+                                    
+                                </textarea>
+                                <p>{{comment.length}}/{{maxChars}}</p>
+                            </div>
+                        </form>
+                    </div> -->
+                    <!-- <p>Cancellation policy</p>
+                    <p> This Reservation is non-refundable.</p> -->
+                </div>
+
+                <div class="buttonconfirm">
+                    <button (click)="onSubmit()" type="submit"> CONFIRM </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-container col-lg-6 col-md-6">
+            <div class="rightcol">
+                <div class="right-top row">
+                    <div class="col-lg-6 thumbnail-container">
+                        <img src="../uploads/{{facilityImages.image1}}">
+                    </div>
+                    <div class="col-lg-6 owner-info">
+                        <!-- <p style="font-size:16px;">Pet {{facilityInfos.typeOfPlace}}</p> -->
+                        <p style="font-size:20px; font-weight: 700;">{{facilityInfos.facilityTitle}}</p>
+                        <p Style="font-size:12px; padding-bottom: 10px;"><img class="small-icon"
+                                src="../assets/icons/location_on_FILL0_wght400_GRAD0_opsz48.svg"
+                                alt="loc-icon">{{facilityInfos.facilityStreet}} {{facilityInfos.facilityBrgy}},
+                            {{facilityInfos.facilityCity}}, {{facilityInfos.facilityState}}
+                            {{facilityInfos.facilityZip}}</p>
+                        <p style="font-size:16px; font-weight: 700; color: #4D4D4D;">Host : {{hostData.firstName}}
+                            {{hostData.lastName}}</p>
+                    </div>
+                </div>
+                <div class="price-details">
+                    <div class="price-box-container">
+                        <p>Pet: {{pet.petName}}</p>
+                        <p style="font-size:18px; font-weight: 500;"> Price Details</p>
+                        <div class="price-box-body">
+                            <div class="price-box">
+                                <p>₱ {{facilityInfos.priceRate}} x {{night}} night</p>
+                                <p>₱ {{facilityInfos.priceRate*night}}</p>
+                            </div>
+                            <div class="price-box" *ngFor="let item of add">
+                                <p>{{item.option}}</p>
+                                <p>₱ {{item.add}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="totalprice-container">
+                    <div class="totalP">
+                        <p style="font-size:18px; font-weight: 500;">Total (PHP)</p>
+                        <p style="font-size:18px;">₱ {{totalPrice}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

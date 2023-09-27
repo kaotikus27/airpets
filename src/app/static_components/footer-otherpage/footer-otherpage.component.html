@@ -1,0 +1,176 @@
+<!-- <div class="footer-section {{footerOpt}}">
+    <div class="footer-content">
+        <div class="footer-top-body">
+            <div class="footer-left">
+                <p><span>Call : </span>345-677-899</p>
+                <p><span>Email : </span>AirPets@outlook.com</p>
+                <p>28St Bonifacio Global City, Taguig City</p>
+            </div>
+            <div class="footer-right">
+                <p>Follow us</p>
+                <div class="socials">
+                    <img *ngFor="let image of imageLinks; index as i" 
+                    src={{image}} alt="socials{{i}}">
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-body">
+            <div class="footer-left">
+                <div class="copyright">
+                    <p>Copyright@Furtel.</p>
+                    <span>All Rights Reserved</span>
+                </div>
+                <p>@2022 Furtel</p>
+            </div>
+            <div class="footer-right">
+                <p>Privacy</p>
+                <p>Terms of Service</p>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="footer-section {{footerOpt}}">
+    <div class="footer-content">
+        <div class="footer-top-body">
+            <div class="footer-left">
+                <p><span>Call : </span>345-677-899</p>
+                <p><span>Email : </span>AirPets@outlook.com</p>
+                <p>28St Bonifacio Global City, Taguig City</p>
+            </div>
+            <div class="footer-right">
+                <p>Follow us</p>
+                <div class="socials">
+                    <img *ngFor="let image of imageLinks; index as i" src={{image}} alt="socials{{i}}">
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-body">
+            <div class="footer-left">
+                <div class="copyright">
+                    <p>Copyright@Furtel.</p>
+                    <span>All Rights Reserved</span>
+                </div>
+                <p>@2022 Furtel</p>
+            </div>
+            <div class="footer-right">
+                <p>Privacy</p>
+                <p (click)="termsAndConditions = 'visible'">Terms of Service</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Terms and conditions</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 12px;">
+                    Thank you for using Airpets!<br>
+                    <br>
+                    These Terms of Service (“Terms”) are a binding legal agreement between you and Airpets that govern
+                    your right to use the websites, applications, and other offerings from Airpets (collectively, the
+                    “Airpets Platform”).
+                    <br>
+                    <br>
+                    The Airpets Platform offers an online venue that enables users (“Members”) to publish, offer, search
+                    for, and book services. Members who publish and offer services are “Hosts” and Members who search
+                    for, book, or use services are “Guests.” Hosts offer accommodations (“Accommodations”), activities,
+                    excursions, and events (“Experiences”), and a variety of travel and other services (collectively,
+                    “Services,” and each Host Service offering, a “Listing”). You must register an account to access and
+                    use many features of the Airpets Platform, and must keep your account information accurate. As the
+                    provider of the Airpets Platform, Airpets does not own, control, offer or manage any Listings or
+                    Host Services. Airpets is not a party to the contracts entered into directly between Hosts and
+                    Guests, nor is Airpets a real estate broker, travel agency, or insurer. Airpets is not acting as an
+                    agent in any capacity for any Member, except as specified in the Payments Terms of Service (“Payment
+                    Terms”). To learn more about Airpets role see Section 16.
+                    <br>
+                    <br>
+                    We maintain other terms and policies that supplement these Terms like our Privacy Policy, which
+                    describes our collection and use of personal data, and our Payments Terms, which govern any payment
+                    services provided to Members by the Airpets payment entities (collectively "Airpets Payments").
+                    <br>
+                    <br>
+                    If you are a Host, you are responsible for understanding and complying with all laws, rules,
+                    regulations and contracts with third parties that apply to your Host Services.
+                    <br>
+                    <br>
+                    1. Animal Hotel has the discretion to call in a vet in the event of injury or illness of the animal
+                    or to have it removed to a veterinary clinic for treatment.
+                    <br>
+                    <br>
+                    2. Every possible care and attention will be
+                    given to the pet/s, but it is understood that all pets are left at the owners risk. Animal Hotel
+                    shall not under any circumstance whatsoever caused, be liable in the event that the pet/s depreciate
+                    in value, sustains injury, dies, is ill, is lost or escapes.
+                </p>
+            </div>
+            <div class="modal-footer">
+         
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="modal-container" [ngClass]="termsAndConditions">
+    <div class="modal-box-container">
+        <div class="modal-box">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Terms and conditions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="termsAndConditions = 'invisible'"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Thank you for using Airpets!<br>
+                        <br>
+                        These Terms of Service (“Terms”) are a binding legal agreement between you and Airpets that govern
+                        your right to use the websites, applications, and other offerings from Airpets (collectively, the
+                        “Airpets Platform”).
+                        <br>
+                        <br>
+                        The Airpets Platform offers an online venue that enables users (“Members”) to publish, offer, search
+                        for, and book services. Members who publish and offer services are “Hosts” and Members who search
+                        for, book, or use services are “Guests.” Hosts offer accommodations (“Accommodations”), activities,
+                        excursions, and events (“Experiences”), and a variety of travel and other services (collectively,
+                        “Services,” and each Host Service offering, a “Listing”). You must register an account to access and
+                        use many features of the Airpets Platform, and must keep your account information accurate. As the
+                        provider of the Airpets Platform, Airpets does not own, control, offer or manage any Listings or
+                        Host Services. Airpets is not a party to the contracts entered into directly between Hosts and
+                        Guests, nor is Airpets a real estate broker, travel agency, or insurer. Airpets is not acting as an
+                        agent in any capacity for any Member, except as specified in the Payments Terms of Service (“Payment
+                        Terms”). To learn more about Airpets role see Section 16.
+                        <br>
+                        <br>
+                        We maintain other terms and policies that supplement these Terms like our Privacy Policy, which
+                        describes our collection and use of personal data, and our Payments Terms, which govern any payment
+                        services provided to Members by the Airpets payment entities (collectively "Airpets Payments").
+                        <br>
+                        <br>
+                        If you are a Host, you are responsible for understanding and complying with all laws, rules,
+                        regulations and contracts with third parties that apply to your Host Services.
+                        <br>
+                        <br>
+                        1. Animal Hotel has the discretion to call in a vet in the event of injury or illness of the animal
+                        or to have it removed to a veterinary clinic for treatment.
+                        <br>
+                        <br>
+                        2. Every possible care and attention will be
+                        given to the pet/s, but it is understood that all pets are left at the owners risk. Animal Hotel
+                        shall not under any circumstance whatsoever caused, be liable in the event that the pet/s depreciate
+                        in value, sustains injury, dies, is ill, is lost or escapes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-back" (click)="termsAndConditions = 'invisible'"></div>
+</div>

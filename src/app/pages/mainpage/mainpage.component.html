@@ -1,0 +1,117 @@
+<div class="mainpage-body">
+    <!-- <div class="top-tab">
+        <div class="top-options" id="top-options">
+            <div class="option" *ngFor="let tab of tabs; index as i" (click)="onClick(i)" [ngClass]="active[i]">
+                <img src={{tab.img}} alt="imglink">
+                <p>{{tab.name}}</p>
+            </div>
+        </div>
+    </div> -->
+    <div class="result-options">
+        <div class="result-head">
+            <div class="header-part">
+                <div>
+                    <p *ngIf="loggedIn"><span>Welcome</span> {{userLogged.firstName}} {{userLogged.lastName}}!</p>
+                </div>
+                <!-- <h5>Nearest to your Location</h5> -->
+                <div class="filter-btn" (click)="onClickFilter(0)">
+                    <img src="../assets/icons/MicrosoftTeams-image (7).png" alt="filter-ico">
+                    <p>Filters</p>
+                </div>
+            </div>
+        </div>
+        <div class="result-body">
+            <div class="row" *ngIf="viewAll">
+                <div class="furtel-card-container col-md-3 col-sm-4 col-6 d-flex align-items-stretch" *ngFor="let card of facilityInfos; index as i">
+                    <div class="furtel-card d-flex align-items-stretch" [ngClass]="cardHover[i]" (mouseenter)="onHoverCard(i)" (mouseleave)="onLeave(i)" (click)="onClickCard(i)">
+                        <div class="thumbnail-container">
+                            <!-- <img src={{card.thumbnail}} alt="card{{i}}"> -->
+                            <img src="../uploads/{{facilityImages[i].image1}}" alt="card{{i+1}}">
+                        </div>
+                        <div class="card-info">
+                            <!-- <span>{{card.name}}</span>
+                            <p>{{card.location}}</p>
+                            <p>Availability : {{card.availability}}</p>
+                            <p class="price"><span>₱{{card.price}}</span> per day</p> -->
+                            <span>{{card.facilityTitle}}</span>
+                            <p>{{card.facilityCity}}</p>
+                            <!-- <p>Availability : {{card.availability}}</p> -->
+                            <p class="price"><span>₱{{card.priceRate}}</span> per day</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal-container" *ngIf="filter">
+    <div class="modal-box">
+        <div class="filter-header">
+            <img src="../assets/icons/close_FILL0_wght400_GRAD0_opsz48 (1).svg" alt="close" (click)="onClickFilter(1)">
+            <p>Filter</p>
+        </div>
+        <div class="filter-body">
+            <div class="price-range">
+                <div class="section-body">
+                    <p class="title">Price Range</p>
+                    <!-- <p class="sub-text">The average daily price is ₱800</p> -->
+                    <div class="input-price">
+                        <div class="input-box">
+                            <input type="number" name="min-price" id="min-price" min="0" oninput="validity.valid||(value='');" [(ngModel)]="priceRange[0]" placeholder="0" (input)="onInputPrice(0)">
+                            <label for="min-price">min price</label>
+                            <p>₱</p>
+                            <div class="error" *ngIf="error[0]">Should be lower than max price</div>
+                        </div>
+                        <img src="../assets/icons/arrow_forward_FILL0_wght400_GRAD0_opsz48.svg" alt="arrow-right">
+                        <div class="input-box">
+                            <input type="number" name="max-price" id="max-price" min="0" oninput="validity.valid||(value='');" [(ngModel)]="priceRange[1]" placeholder="0" (input)="onInputPrice(1)">
+                            <label for="max-price">max price</label>
+                            <p>₱</p>
+                            <div class="error" *ngIf="error[1]">Should be higher than min price</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="type-of-place">
+                <div class="section-body">
+                    <p class="title">Type of place and ammenities</p>
+                    <div class="selections">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="check-select" *ngFor="let selects of selection.slice(0, 4); index as i">
+                                    <input type="checkbox" name="select{{i}}" id="select{{i}}" [(ngModel)]="select[selects.value]">
+                                    <label for="select{{i}}">{{selects.name}}</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="check-select" *ngFor="let selects of selection.slice(4, 8); index as i">
+                                    <input type="checkbox" name="select{{i+4}}" id="select{{i+4}}" [(ngModel)]="select[selects.value]">
+                                    <label for="select{{i+4}}">{{selects.name}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-type">
+                <div class="section-body">
+                    <p class="title">Property Type</p>
+                    <div class="property-type-selection row">
+                        <div class="property-type-btn" *ngFor="let property of properties; index as i">
+                            <input type="radio" name="property" id="property{{i}}" [value]="property.value" [(ngModel)]="propertyChoice">
+                            <label for="property{{i}}">
+                                <img src={{property.img}} alt="property{{i}}">
+                                <p>{{property.name}}</p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input (click)="onSubmitFilter()" type="submit" name="submit" id="submit" value="Apply">
+        </div>
+    </div>
+    <div class="modal-back" (click)="onClickFilter(1)"></div>
+</div>

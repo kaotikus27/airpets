@@ -1,0 +1,416 @@
+#justify {
+    text-align: justify;
+
+}
+
+.align{
+    margin-left: 49px;
+}
+h3{
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(50, 50, 50);
+    margin: 0;
+}
+
+/* .p-5{
+    padding: 20px;  
+    border-radius: 10px;
+    padding-top:20px;
+    box-shadow: 0px 2px 10px gray;
+} */
+
+/* .first-select-form{
+    border-radius: 10px;
+    padding-top:20px;
+    box-shadow: 0px 2px 10px gray;
+} */
+
+.first-select-form .selectform{
+    padding-top: 20px;
+    padding-left: 100px;
+    padding-bottom: 20px;
+    
+}
+
+.first-select-form .selectform .formselect{
+    max-width: 100%;
+    width: 157px;
+    height: 35px;
+    border-radius: 8px;
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 0px 3px 3px gray;
+
+}
+
+
+.fontzxc {
+    font-weight: 200;
+    font-size: 12px;
+    width: 85%;
+}
+
+.first-select-form .btns .accomodations .bts{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 340px;
+
+
+}
+
+.first-select-form .btns .accomodations .bts button {
+    width: 800px;
+    margin: 10px;
+    border-radius: 11px;
+    background-color: white;
+    height: 80px;
+    font-weight: 500;
+    /* box-shadow: 0px 5px 10px #888888; */
+    padding: 10px;
+    position: relative;
+}
+
+.accomodations .bts button:hover {
+    border: 5px solid rgb(67, 67, 67);
+    transition: 350ms;
+    box-shadow: 0px 5px 15px gray;
+   
+}
+
+.clickedStyle {
+    border: 5px solid rgb(67, 67, 67); 
+}
+
+.notclickedStyle {
+   border: 1px;
+}
+
+.third-top-container {
+    margin-top: 20px;
+}
+
+.accomodations button img {
+    width: 40px;
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+}
+
+.location-section {
+    padding-top: 20px;
+}
+
+.my-search-box {
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #212529;
+    width: 60%;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+}
+
+.Maps-Textbox {
+    display: flex;
+
+}
+
+.textboxs {
+    width: 50%;
+    padding-left: 50px;
+    padding-top: 20px;
+
+}
+
+.textboxs form {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.googlemaps {
+    justify-content: center;
+    padding: auto;
+    margin: auto;
+}
+
+.anotherdetailsforplace {
+    padding-left: 50px;
+    padding-top: 20px;
+}
+
+.anadadetails-select {
+
+    display: flex;
+    padding-top: 20px;
+    font-weight: 500;
+    justify-content: center;
+    gap: 75px;
+
+}
+
+.anadadetails-select .selectform {
+    border-radius: 10px;
+    width: 200px;
+    justify-content: center;
+  
+
+}
+
+.anadadetails-select .selectform select {
+    border-radius: 10px;
+    width: 200px;
+    justify-content: center;
+    border: 1px solid rgb(186, 186, 186);
+
+
+}
+
+.offer {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+
+}
+
+.offer button {
+    width: 220px;
+    margin: 10px;
+    border: 1px solid rgb(196, 196, 196);
+    border-radius: 11px;
+    background-color: white;
+    height: 120px;
+    font-weight: 500;
+    padding: 10px;
+}
+
+.offer button:hover {
+    border: 5px solid rgb(67, 67, 67);
+    transition: 350ms;
+    box-shadow: 0px 5px 15px gray;
+}
+
+
+.offer img {
+    width: 50px;
+}
+
+.amenities {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+
+}
+
+.amenities button {
+    width: 220px;
+    margin: 10px;
+    border: 1px solid rgb(196, 196, 196);
+    border-radius: 11px;
+    background-color: white;
+    height: 120px;
+    font-weight: 500;
+    padding: 10px;
+}
+
+.amenities button:hover {
+    border: 5px solid rgb(67, 67, 67);
+    transition: 350ms;
+    box-shadow: 0px 5px 15px gray;
+}
+
+/* .amenities button:hover {
+    width: 225px;
+    height: 125px;
+    box-shadow: 0px 5px 20px #888888;
+
+} */
+.first-top-container{
+    max-width: 100%;
+
+}
+
+.amenities img {
+    width: 50px;
+}
+
+.safetymeasures {
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+    margin-left: 120px;
+
+}
+
+.safetymeasures button {
+    width: 220px;
+    margin: 10px;
+    border: 1px solid rgb(196, 196, 196);
+    border-radius: 11px;
+    background-color: white;
+    height: 120px;
+    font-weight: 500;
+    padding: 10px;
+}
+
+.safetymeasures button:hover {
+  border: 5px solid rgb(67, 67, 67);
+  transition: 350ms;
+  box-shadow: 0px 5px 15px gray;
+}
+
+.safetymeasures img {
+    width: 50px;
+}
+
+.up .filesuploads {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.up .filesuploads label{
+    cursor: pointer;
+}
+
+.up .filesuploads label div{
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.up .filesuploads .form-control {
+    box-shadow: 0px 3px 2px gray;
+}
+
+.inputfieldTitle {
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.inputfieldTitle input {
+
+    margin-top: 50px;
+}
+
+.descriptiontitle .form-group {
+    margin-left: 150px;
+    margin-right: 150px;
+    /* box-shadow: 0px 3px 2px gray; */
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.buttonsp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 550px;
+    height: 140px;
+    /* box-shadow: 0px 5px 10px gray; */
+    border-radius: 15px;
+    border: 1px solid black;
+    padding-top: 20px;
+}
+
+.pricesection .buttonsp button {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    margin: 20px;
+    font-size: larger;
+    font-weight: 1000;
+    border: 2px solid black;
+}
+
+.pricesection .buttonsp input {
+    height: 50px;
+    width: 150px;
+    border: 1px solid black;
+    box-shadow: 0px 3px 2px gray;
+    font-size: larger;
+    font-weight: 1000;
+    text-align: center;
+
+}
+
+.finalsubmit {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.finalsubmit button {
+    width: 250px;
+    height: 45px;
+    background-color: #BB00B4;
+    color: white;
+    font-size: larger;
+    border-radius: 20px;
+    border: 0;
+    box-shadow: 0px 3px 2px gray;
+
+}
+
+.buttonsp .priceinput {
+    display: flex;
+    align-items: center;
+}
+
+.buttonsp h2 {
+    font-size: 24px;
+}
+
+@media only screen and (max-width: 450px){
+    .first-select-form .selectform .formselect{
+        width: 100%;
+        height: 35px;   
+        justify-content: center;
+    }
+    .first-select-form .selectform {
+        padding-left: 0;
+     
+    }
+    
+}
+
+@media only screen and (max-width: 768px){
+    .first-select-form .selectform .formselect{
+        width: 100%;
+        height: 35px;   
+        justify-content: center;
+     
+    }
+
+    .first-select-form .selectform {
+        padding-left: 0;
+     
+    }
+    .first-top-container{
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        text-align: center;
+    }
+
+}
+
+/* @media only screen and (max-width: 1080px){
+    .first-select-form .selectform .formselect{
+        width: 90%;
+        height: 35px;   
+        justify-content: center;
+        padding-left: 0px;
+    }
+} */
