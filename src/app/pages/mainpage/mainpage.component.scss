@@ -1,0 +1,564 @@
+// .mainpage-body{
+//     margin-top: 60px;
+// }
+.mainpage-body{
+    min-height: 550px;
+}
+.top-tab{
+    //box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.20);
+    border-bottom: 2px solid #B1B1B1;
+    width: 100%;
+    position: fixed;
+    background-color: white;
+    z-index: 1;
+    .top-options{
+        max-width: 1000px;
+        min-height: 55px;
+        margin: auto;
+        display: flex;
+        justify-content: space-evenly;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        &::-webkit-scrollbar-track{
+            //-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+            background-color: #F5F5F5;
+        }
+        &::-webkit-scrollbar{
+            height: 8px;
+            background-color: #F5F5F5;
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: #bb00b5a0;
+            border-radius: 5px;
+            border: 2px solid white;
+        }
+        .option{
+            padding: 0px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 120px;
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            img{
+                max-width: 30px;
+            }
+            p{
+                margin: 0;
+                font-size: 12px;
+                font-weight: 650;
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+.active{
+    border-bottom: 2px solid black;
+}
+.not-active{
+    color: gray;
+    img{
+        filter: invert(50%);
+    }
+}
+.not-active:hover{
+    color: black;
+    border-bottom: 2px solid rgb(159, 159, 159);
+    img{
+        filter: invert(0);
+    }
+}
+.result-options{
+    max-width: 1300px;
+    margin: auto;
+    padding: 0px 25px;
+    padding-top: 135px;
+    @media only screen and (max-width: 288px) {
+        padding-top: 145px;
+    }
+    .result-head{
+        top: 60px;
+        padding: 15px 15px 15px 15px;
+        background-color: white;
+        position: fixed;
+        max-width: 1300px;
+        margin: auto;
+        left: 0;
+        right: 0;
+        width: 100%;
+        .header-part{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        p{
+            margin-top: -5px;
+            font-size: 20px;
+            margin-bottom: 2px;
+            span{
+                font-weight: 600;
+                color: #BB00B4;
+            }
+        }
+        h5{
+            margin: 0;
+            padding: 5px 0px;
+            @media only screen and (max-width: 344.5px) {
+                font-size: 15px;
+            }
+        }
+    }
+    .filter-btn{
+        display: flex;
+        align-items: center;
+        border: 1px solid #A2A2A2;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.20);
+        border-radius: 10px;
+        max-width: 90px;
+        width: 100%;
+        justify-content: space-evenly;
+        cursor: pointer;
+        transition: ease-in-out 0.1s;
+        height: 34px;
+        &:hover{
+            box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+        }
+        img{
+            width: 15px;
+            height: 15px;
+        }
+        p{
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+    }
+    .result-body{
+        margin-top: -65px;
+        margin-bottom: 20px;
+        .row{
+            height: auto;
+        }
+        .furtel-card-container{
+            padding: 6px;
+            height: auto;
+            max-height: max-content;
+            .furtel-card{
+                flex-direction: column;
+                justify-content: space-between;
+                border: 1px solid #D2D2D2;
+                padding: 8px;
+                //box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border-radius: 15px;
+                max-height: 500px;
+                height: 100%;
+                width: 100%;
+                transition: ease-in-out 0.1s;
+                cursor: pointer;
+                .thumbnail-container{
+                    width: 100%;
+                    height: 100%;
+                }
+                img{
+                    border-radius: 15px;
+                    max-width: 300px;
+                    width: 100%;
+                    max-height: 185px;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                .card-info{
+                    height: auto;
+                }
+                p{
+                    margin: 0;
+                    color: #606060;
+                    font-size: 14px;
+                }
+                span{
+                    font-weight: 700;
+                    color: black;
+                    font-size: 18px;
+                }
+                .price{
+                    padding-top: 5px;
+                    text-align: end;
+                    span{
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+.onhoverCard{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+input[type=checkbox]{
+    accent-color: #BB00B4;
+}
+
+@media only screen and (max-width: 998px) {
+    .result-options{
+        .result-body{
+            .furtel-card-container{
+                .furtel-card{
+                    span{
+                        font-size: 16px;
+                    }
+                    p{
+                        font-size: 12px;
+                    }
+                    .price{
+                        span{
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 878px) {
+    .result-options{
+        .result-body{
+            .furtel-card-container{
+                .furtel-card{
+                    span{
+                        font-size: 14px;
+                    }
+                    p{
+                        font-size: 10px;
+                    }
+                    .price{
+                        span{
+                            font-size: 11px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .result-options{
+        .result-body{
+            .furtel-card-container{
+                .furtel-card{
+                    span{
+                        font-size: 15px;
+                    }
+                    p{
+                        font-size: 11px;
+                    }
+                    .price{
+                        span{
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 665px) {
+    .result-options{
+        .result-body{
+            .furtel-card-container{
+                .furtel-card{
+                    span{
+                        font-size: 13.5px;
+                    }
+                    p{
+                        font-size: 9.5px;
+                    }
+                    .price{
+                        span{
+                            font-size: 10.5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 576px) {
+    .result-options{
+        .result-body{
+            .furtel-card-container{
+                .furtel-card{
+                    span{
+                        font-size: 16px;
+                    }
+                    p{
+                        font-size: 12px;
+                    }
+                    .price{
+                        span{
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 445px) {
+    .result-options{
+        .result-body{
+            .furtel-card-container{
+                .furtel-card{
+                    span{
+                        font-size: 14px;
+                    }
+                    p{
+                        font-size: 10px;
+                    }
+                    .price{
+                        span{
+                            font-size: 11px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 611px) {
+    .top-tab{
+        .top-options{
+            justify-content: flex-start;
+        }
+    }
+}
+
+
+// Modal
+.modal-container{
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 40px;
+    @media only screen and (max-width: 742.5px) {
+        padding-top: 0;
+    }
+}
+.modal-back{
+    background-color: rgba(0, 0, 0, 0.25);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+}
+.modal-box{
+    max-width: 600px;
+    background-color: #F2F2F2;
+    margin: auto;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.10);
+    border-radius: 15px;
+    z-index: 300;
+    text-align: center;
+    padding-bottom: 10px;
+    @media only screen and (max-width: 742.5px) {
+        border-radius: 0;
+        max-width: 100%;
+        height: 100%;
+    }
+    .section-body{
+        max-width: 500px;
+        margin: auto;
+    }
+    p{
+        margin: 0;
+    }
+    .title{
+        font-weight: 500;
+        font-size: 20px;
+        margin-bottom: -5px;
+        text-align: left;
+    }
+    .sub-text{
+        font-size: 13px;
+        color: #737373;
+    }
+    .filter-header{
+        position: relative;
+        padding: 8px;
+        border-bottom: 2px solid #BCBCBC;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 15px 15px 0px 0px;
+        @media only screen and (max-width: 742.5px) {
+            border-radius: 0;
+        }
+        img{
+            width: 20px;
+            position: absolute;
+            left: 10px;
+            cursor: pointer;
+        }
+        p{
+            font-size: 15px;
+        }
+    }
+    .filter-body{
+        padding: 10px 30px;
+    }
+    .price-range{
+        text-align: left;
+        border-bottom: 1px solid #BCBCBC;
+        .input-price{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            padding-bottom: 20px;
+            .input-box{
+                position: relative;
+                label{
+                    position: absolute;
+                    top: 2px;
+                    left: 10px;
+                    font-size: 10px;
+                    color: #898989;
+                }
+                p{
+                    position: absolute;
+                    top: 8px;
+                    left: 10px;
+                    font-size: 25px;
+                }
+                .error{
+                    position: absolute;
+                    right: 5px;
+                    color: red;
+                    bottom: -15px;
+                    font-size: 10px;
+                }
+            }
+            input{
+                max-width: 150px;
+                border: 1px solid #B1B1B1;
+                border-radius: 8px;
+                padding-top: 14px;
+                padding-bottom: 5px;
+                padding-left: 30px;
+            }
+            img{
+                width: 25px;
+                height: 25px;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+            /* Chrome, Safari, Edge, Opera */
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+            }
+
+            /* Firefox */
+            input[type=number] {
+            -moz-appearance: textfield;
+            }
+        }
+    }
+    .type-of-place{
+        padding: 10px;
+        border-bottom: 1px solid #BCBCBC;
+        .selections{
+            padding: 10px;
+            padding-top: 20px;
+            max-width: 400px;
+            margin: auto;
+            .row{
+                .col-sm-6{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    .check-select{
+                        display: flex;
+                    }
+                    input{
+                        margin-right: 5px;
+                        cursor: pointer;
+                    }
+                    label{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+    .property-type{
+        padding-top: 10px;
+        border-bottom: 1px solid #BCBCBC;
+        .property-type-selection{
+            padding-top: 30px;
+            padding-bottom: 30px;
+            max-width: 380px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            @media only screen and (max-width: 575.5px) {
+                padding: 10px 0px;
+            }
+        }
+        .property-type-btn{
+            margin: 0;
+            width: 50%;
+            @media only screen and (max-width: 742.5px) {
+                width: 50%;
+            }
+            input[type=radio]{
+                display: none;
+            }
+            label{
+                font-size: 12px;
+                border: 2px solid #CECECE;
+                border-radius: 5px;
+                width: 180px;
+                background-color: white;
+                padding: 5px;
+                cursor: pointer;
+                @media only screen and (max-width: 742.5px) {
+                    margin: 5px;
+                    width: 100%;
+                }
+                img{
+                    max-width: 40px;
+                }
+            }
+            input[type=radio]:checked + label{
+                color: white;
+                background-color: #A2A2A2;
+                img{
+                    filter: invert(100%);
+                }
+            }
+            
+        }
+    }
+    input[type=submit]{
+        margin-top: 20px;
+        color: white;
+        font-size: 20px;
+        background-color: #BB00B4;
+        border: none;
+        max-width: 200px;
+        width: 100%;
+        height: 40px;
+        border-radius: 15px;
+    }
+}
+#min-price:focus, #max-price:focus{
+    outline: 1.5px solid #B1B1B1;
+}

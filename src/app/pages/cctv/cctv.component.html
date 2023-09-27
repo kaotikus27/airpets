@@ -1,0 +1,76 @@
+<div class="section-body">
+    <div class="container">
+        <div class="holder">
+            <div class="camera">
+                <div class="webcam-container p-0 m-0 d-flex ">
+                    <webcam style="position: relative; border: 8px solid gray; background-color: gray; border-radius: 15px;" [width]="835"
+                        [height]="900" [trigger]="invokeObservable" (imageCapture)="captureImg($event)"></webcam>
+                </div>
+                
+                <div class="right-bottom">
+                    <div class="facilityInfo">
+                        <h5>{{facilityInfos.facilityTitle}}</h5>
+                        <p>{{facilityInfos.facilityStreet}} {{facilityInfos.facilityBrgy}}, {{facilityInfos.facilityCity}}, {{facilityInfos.facilityState}} {{facilityInfos.facilityZip}}</p>
+                    </div>
+                    <div class="timeandlive">
+                        <div>
+                            <img src="../assets/icons/Basic_red_dot.png">
+                            <h5 class="m-0 px-1 text-danger">Live</h5>
+                            <p>Time: {{ rxTime | date: 'hh:mm:ss a' }}</p>
+                        </div>
+                        <div>
+                            <p>Currently Viewing: {{userViewing}}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div>
+                    <p>
+                        Pawsome Hotel name offers 50 comfortable rooms for pets with Taguig’s most central address.
+                        Discover carefully selected design furnishing perfectly fit for your little ones.
+                    </p>
+                </div> -->
+    
+            </div>
+            <div class="details">
+                <div class="bottom-part">
+                    <!-- <div class="info-left col-lg-6">
+                        <div class="facility-infos">
+                            <h3>Pet Hotel Name</h3>
+                            <p>28th Street, Bonifacio Global Center, Taguig City</p>
+                            <p>
+                                Pawsome Hotel name offers 50 comfortable rooms for pets with Taguig’s most central address.
+                                Discover carefully selected design furnishing perfectly fit for your little ones.
+                            </p>
+                        </div>
+                    </div> -->
+                    <div class="info-right">
+                        <div class="facility-infos">
+                            <div class="">
+                                <h6>Host : <span>{{hostData.firstName}} {{hostData.lastName}}</span> </h6> 
+                                <p> Transaction number : <span>{{bookingInfos.transactionId}}</span>  </p>
+                            </div>
+                            <div class="">
+                                <p>Check in Date : {{bookingInfos.checkinDate}}</p>
+                            </div>
+                            <div class="">
+                                <p>Check Out Date : {{bookingInfos.checkoutDate}} </p> 
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <!-- <div class="col-md-12">
+            <button class="btn btn-danger" (click)="getSnapshot()">
+                Capture Image
+            </button>
+        </div>
+        <div class="col-12">
+            <div id="results">Your taken image manifests here...</div>
+            <img [src]="webcamImage?.imageAsDataUrl" height="400px" />
+        </div> -->
+    </div>
+</div>

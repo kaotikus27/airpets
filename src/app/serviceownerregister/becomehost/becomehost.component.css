@@ -1,0 +1,483 @@
+.section-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.second-top-container span {
+  font-weight: 200;
+  font-size: 15px;
+}
+
+.second-top-container .selectform {
+  width: 250px;
+}
+
+.second-top-container .selectform .form-select {
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: ease-in-out 0.1s;
+  cursor: pointer;
+}
+.second-top-container .selectform .form-select:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.form-select {
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: ease-in-out 0.1s;
+  cursor: pointer;
+}
+.form-select:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.form-select:focus {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.fontzxc {
+  font-weight: 200;
+  font-size: 12px;
+  width: auto;
+}
+
+.accomodations {
+  justify-content: flex-start;
+  align-items: left;
+  display: flex;
+}
+
+.accomodation-btn-container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.btn-container {
+  padding: 5px;
+  min-height: 100px;
+}
+.btn-container Button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.accomodations Button {
+  display: flex;
+  justify-content: stretch;
+  flex-direction: row;
+  max-width: 800px;
+  height: 100%;
+  border-radius: 11px;
+  background-color: white;
+  min-height: 65px;
+  font-weight: 500;
+  align-items: center;
+  padding: 6px;
+  position: relative;
+  width: 100%;
+}
+.accomodations Button .btn-left-info {
+  text-align: left;
+  padding: 0px 5px;
+  width: 80%;
+}
+.accomodations Button span {
+  color: black;
+  font-weight: 600;
+  text-align: left;
+}
+.accomodations Button p {
+  margin: 0;
+  text-align: left;
+}
+
+.selected {
+  border: 3px solid #BB00B4;
+  background-color: #888888;
+}
+
+.not-selected {
+  border: 1px solid black;
+}
+.not-selected:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 3px solid rgb(67, 67, 67);
+  transition: 200ms;
+  box-shadow: 0px 5px 15px gray;
+}
+
+.third-top-container {
+  margin-top: 20px;
+}
+
+.img-accom-container {
+  margin: 5px;
+  position: absolute;
+  right: 5px;
+}
+
+.accomodations button img {
+  width: 40px;
+  right: 10px;
+  bottom: 20px;
+}
+
+.my-search-box {
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #212529;
+  width: 60%;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+}
+
+.Maps-Textbox {
+  display: flex;
+}
+
+.textboxs form input {
+  border: 1px solid #212529;
+}
+
+.googlemaps {
+  justify-content: center;
+  padding: auto;
+  margin: auto;
+  border: 1px solid black;
+}
+
+.anadadetails-select {
+  padding-top: 20px;
+  font-weight: 500;
+  justify-content: center;
+}
+
+.anadadetails-select .selectform {
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.anadadetails-select .selectform select {
+  border-radius: 10px;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.offer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.offer button {
+  width: 220px;
+  margin: 10px;
+  border: 1px solid;
+  border-radius: 11px;
+  background-color: white;
+  height: 120px;
+  font-weight: 500;
+  box-shadow: 0px 5px 10px #888888;
+  padding: 10px;
+}
+
+.offer img {
+  width: 50px;
+}
+
+.amenities {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.amenities button {
+  width: 220px;
+  margin: 10px;
+  border: 1px solid;
+  border-radius: 11px;
+  background-color: white;
+  height: 120px;
+  font-weight: 500;
+  box-shadow: 0px 5px 10px #888888;
+  padding: 10px;
+}
+
+/* .amenities button:hover {
+    width: 225px;
+    height: 125px;
+    box-shadow: 0px 5px 20px #888888;
+
+} */
+.amenities img {
+  width: 50px;
+}
+
+.safetymeasures {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+  margin-left: 120px;
+}
+
+.safetymeasures button {
+  width: 220px;
+  margin: 10px;
+  border: 1px solid;
+  border-radius: 11px;
+  background-color: white;
+  height: 120px;
+  font-weight: 500;
+  box-shadow: 0px 5px 10px #888888;
+  padding: 10px;
+}
+
+.safetymeasures img {
+  width: 50px;
+}
+
+.up .filesuploads .form-control {
+  box-shadow: 0px 3px 2px gray;
+}
+
+.inputfieldTitle input {
+  box-shadow: 0px 3px 2px gray;
+  margin-top: 20px;
+}
+
+.photo, .hotelname, .descriptiontitle, .pricesection {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.filesuploads {
+  position: relative;
+}
+
+.custom-file-viewer {
+  background-color: red;
+  position: absolute;
+  top: 5px;
+}
+
+.descriptiontitle .form-group {
+  box-shadow: 0px 3px 2px gray;
+  border: 2px solid gray;
+  border-radius: 10px;
+}
+
+.download-img-container {
+  border: 1.5px solid #acafb1;
+  border-radius: 5px;
+  display: flex;
+}
+
+.filename-container {
+  padding: 5px;
+}
+.filename-container p {
+  margin: 0;
+}
+
+.custom-btn-upload {
+  border: 1.5px solid #acafb1;
+  background-color: #efefef;
+  padding: 5px 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  min-width: 110px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.custom-btn-upload:hover {
+  background-color: #dadada;
+}
+
+#formFileMultiple {
+  display: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.buttonsp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 550px;
+  height: 140px;
+  box-shadow: 0px 5px 10px gray;
+  border-radius: 15px;
+  border: 0.5px solid black;
+  padding-top: 20px;
+}
+
+.pricesection .buttonsp button {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  margin: 20px;
+  font-size: larger;
+  font-weight: 1000;
+  border: 2px solid black;
+}
+
+.pricesection .buttonsp button:hover {
+  background-color: black;
+  color: white;
+}
+
+.pricesection .buttonsp input {
+  height: 50px;
+  width: 150px;
+  border: 1px solid black;
+  box-shadow: 0px 3px 2px gray;
+  font-size: larger;
+  font-weight: 1000;
+  text-align: center;
+}
+
+.finalsubmit {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.finalsubmit .agree-container {
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+.finalsubmit .agree-container a {
+  cursor: pointer;
+}
+.finalsubmit .agree-container a:hover {
+  color: #8B488C;
+}
+.finalsubmit input[type=checkbox] {
+  accent-color: #BB00B4;
+  height: 100%;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.finalsubmit button {
+  width: 250px;
+  height: 45px;
+  background-color: #BB00B4;
+  color: white;
+  font-size: larger;
+  border-radius: 20px;
+  border: 0;
+  box-shadow: 0px 3px 2px gray;
+}
+
+/* .my-search-box {
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #212529;
+    width: 60%;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+  } */
+.buttonsp .priceinput {
+  display: flex;
+  align-items: center;
+}
+
+.buttonsp h2 {
+  font-size: 24px;
+}
+
+.become-host-section {
+  max-width: 1300px;
+  margin: auto;
+}
+
+.stand-out {
+  padding: 30px;
+}
+
+.col-container {
+  padding: 10px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card-container {
+  padding: 5px;
+  max-height: auto;
+  min-height: 130px;
+}
+
+.amenitiess {
+  padding: 30px;
+}
+
+.safety {
+  padding: 30px;
+}
+
+p {
+  margin: 0;
+}
+
+.item-card {
+  background-color: white;
+  height: 100%;
+  max-height: -webkit-max-content;
+  max-height: -moz-max-content;
+  max-height: max-content;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  max-height: auto;
+  min-height: -webkit-min-content;
+  min-height: -moz-min-content;
+  min-height: min-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.item-card img {
+  max-width: 60px;
+  margin-bottom: 5px;
+}
+.item-card p {
+  font-size: 15px;
+}
+
+.address-container {
+  padding: 0px 7px;
+}
+
+.address-input {
+  padding: 5px;
+}
+.address-input input {
+  border: 1px solid #212529;
+}
+
+.disabled {
+  border: 1px solid #a0a0a0;
+  cursor: default;
+}
+.disabled:hover {
+  box-shadow: none;
+  border: 1px solid #a0a0a0;
+  transition: none;
+  box-shadow: none;
+}/*# sourceMappingURL=becomehost.component.css.map */

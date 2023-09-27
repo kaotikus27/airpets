@@ -1,0 +1,114 @@
+.camera {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 3px 10px;
+  border-radius: 15px;
+  padding: 20px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.webcam-container {
+  display: flex;
+  justify-content: center;
+}
+
+.section-body {
+  background-image: url("~src/assets/images/firstimg.png");
+  background-size: cover;
+  margin: auto;
+}
+
+.container {
+  margin: auto;
+  max-width: 1400px;
+  margin-top: 10px;
+}
+
+p {
+  padding: 0;
+}
+
+.timeandlive img {
+  height: 15px;
+  width: auto;
+  padding-right: 5px;
+}
+
+.timeandlive {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  justify-content: center;
+}
+
+.timeandlive div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.timeandlive div p {
+  margin: 0;
+}
+
+.div1st {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 3px 10px gray;
+  border-radius: 15px;
+}
+
+.div2nd {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 3px 10px gray;
+  border-radius: 15px;
+}
+
+.details {
+  font-size: 14px;
+  font-weight: 400;
+  padding: 10px;
+}
+
+.right-bottom {
+  display: flex;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.facilityInfo {
+  width: 100%;
+}
+
+.widget-container {
+  padding: 10px;
+}
+
+.holder {
+  padding: 20px;
+}
+
+.facility-infos {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.info-right {
+  padding: 0;
+  padding-left: 5px;
+  margin: auto;
+  max-width: 903px;
+}
+
+.info-left {
+  padding: 0;
+  padding-right: 5px;
+}
+
+.bottom-part {
+  padding: 0;
+}/*# sourceMappingURL=cctv.component.css.map */

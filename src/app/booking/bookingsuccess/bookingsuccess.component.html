@@ -1,0 +1,81 @@
+<div class="success-section">
+    <div class="success-body">
+        <div class="row">
+            <div class="rightcol col-lg-6 col-md-5 col-12">
+                <div class="d-flex flex-column rightcol-body">
+                    <div class="d-flex justify-content-center right-top">
+                        <h6> <img src="../assets/icons/check_circle_FILL0_wght400_GRAD0_opsz48.png"> Booking Complete </h6>
+                    </div>
+                    <div class="item-container">
+                        <h6 style="font-size: 18px; font-weight: 700;">{{facilityInfos.facilityTitle}}</h6>
+                        <p>{{facilityInfos.facilityStreet}} {{facilityInfos.facilityBrgy}}, {{facilityInfos.facilityCity}}, {{facilityInfos.facilityState}} {{facilityInfos.facilityZip}}</p>
+                        <p> Transaction Number : <span style="font-weight: 700;"> {{bookingInfo.transactionId}} </span> </p>
+                    </div>
+                    <div class="item-container">
+                        <p style="font-size: 14px;"> Check in time and date : <span style="font-weight: 700;">{{bookingInfo.checkinDate}}</span> </p>
+                        <p style="font-size: 14px;"> Check out time and date : <span style="font-weight: 700;">{{bookingInfo.checkoutDate}}</span> </p>
+                    </div>
+                    <div class="item-container">
+                        <h6> Price Details </h6>
+                        <div class="px-4 d-flex justify-content-between">
+                            <p>Accomodation</p>
+                            <p style="font-weight: 600;">₱ {{accomodation}}</p>
+                        </div>
+                        <p class="px-4" style="font-weight: 600;">Other services </p>
+                        <div class="otherservice-container" *ngFor="let item of bookingAddonsAdded">
+                            <p>{{item.option}}</p>
+                            <p style="font-weight: 600;">₱ {{item.add}}</p>
+                        </div>
+                        <!-- <div class="ps-5 pe-4 d-flex justify-content-between">
+                            <div>
+                                <p>CCTV Online Surveillance </p>
+                            </div>
+                            <div>
+                                <p>₱ 200</p>
+                            </div>
+    
+                        </div>
+                        <div class="ps-5 pe-4  d-flex justify-content-between">
+                            <div>
+                                <p>Pet Bath </p>
+                            </div>
+                            <div>
+                                <p> ₱ 200</p>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="item-container">
+                        <h6> Payment Details </h6>
+                        <!-- <p class="paid" style="font-weight: 700;"> <img src="../assets/icons/check_circle_FILL0_wght400_GRAD0_opsz48.png"> PAID </p> -->
+                        <div class="px-4 d-flex justify-content-between">
+                            <div>
+                                <!-- <p><span style="font-weight: 600;">Online Payment</span> (Credit/debit)</p>
+                                <p>Card Number : XXXX-XX7890</p> -->
+                                <!-- <p>{{dateToday}}</p> -->
+                                <p>{{dayToday}} -- {{timeToday}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment col py-3">
+                       <div class="d-flex justify-content-end pb-3" >
+                           <h4>Total Bill :  <span style="font-weight: 700;">₱ {{bookingInfo.totalBill}}</span> </h4>
+                       </div>
+                       <div class="buttontransactions d-flex justify-content-center" >
+                        <button (click)="onGotoTransaction()" type="submit"> Go to your transactions </button>
+                    </div>
+                    </div> 
+                </div>
+            </div>
+            <div class="leftcol col-lg-6 col-md-7 col-12">
+                <div class="left-top">
+                    <img src="..\assets\icons\success.png" alt="">
+                    <h3 class="main"> CONGRATULATIONS!</h3>
+                    <h4> YOU SUCCESSFULLY CREATED YOUR BOOKING!</h4>
+                </div>
+                <h4> Thank you for trusting Airpets with your little love ones.</h4>
+                <button type="submit" (click)="onDone()"> Done </button>
+            </div>
+           
+        </div>
+    </div>
+</div>

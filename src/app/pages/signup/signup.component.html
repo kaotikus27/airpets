@@ -1,0 +1,61 @@
+<div class="signup-section">
+    <div class="logo">
+        <img src="../assets/logos/MicrosoftTeams-image (8).png" alt="AirPets_logo">
+        <p>Welcome to AirPets</p>
+    </div>
+    <form class="form-reg" (ngSubmit)="onSubmit()">
+        <div class="input-container name-container row">
+            <div class="col-md-6 name-col name-left">
+                <label for="firstname-reg">{{labels[5]}}</label>
+                <input class="reg-inp" type="text" name="fistname-reg" id="firstname-reg" placeholder="First Name"
+                    [(ngModel)]="inputReg[5]" (input)="onInputReg(5)">
+                <div class="error-style error-name" *ngIf="errorMessage">{{error[5]}}</div>
+            </div>
+            <div class="col-md-6 name-col name-right">
+                <label for="lastname-reg">{{labels[6]}}</label>
+                <input class="reg-inp" type="text" name="lastname-reg" id="lastname-reg" placeholder="Last Name"
+                    [(ngModel)]="inputReg[6]" (input)="onInputReg(6)">
+                <div class="error-style error-name" *ngIf="errorMessage">{{error[6]}}</div>
+            </div>
+        </div>
+        <div class="input-container">
+            <label for="username-reg">{{labels[0]}} <span class="label-req">(Username must consist of alphanumeric
+                    characters)</span></label>
+            <input class="reg-inp" type="text" name="username-reg" id="username-reg" placeholder="Username"
+                [maxlength]="18" [(ngModel)]="inputReg[0]" (input)="onInputReg(0)">
+            <div class="error-style" *ngIf="errorMessage">{{error[0]}}</div>
+        </div>
+        <div class="input-container">
+            <label for="email-reg">{{labels[1]}}</label>
+            <input class="reg-inp" type="text" name="email-reg" id="email-reg" placeholder="Email Address"
+                [(ngModel)]="inputReg[1]" (input)="onInputReg(1)">
+            <div class="error-style" *ngIf="errorMessage">{{error[1]}}</div>
+        </div>
+        <div class="input-container">
+            <label for="password-reg">{{labels[2]}} <span class="label-req">(Password must consist of alphanumeric
+                    characters)</span></label>
+            <input class="reg-inp" type={{passwordView}} name="password-reg" id="password-reg" placeholder="Password"
+                [maxlength]="18" [(ngModel)]="inputReg[2]" (input)="onInputReg(2)">
+            <div class="error-style" *ngIf="errorMessage">{{error[2]}}</div>
+            <span class="reg-eye material-symbols-outlined" (click)="passwordToggle('reg')">
+                {{passwordText}}
+            </span>
+        </div>
+        <div class="input-container">
+            <label for="password-reg-retype">{{labels[3]}}</label>
+            <input class="reg-inp" type={{passwordView}} name="password-reg-retype" id="password-reg-retype"
+                placeholder="Retype Password" [maxlength]="18" [(ngModel)]="inputReg[3]" (input)="onInputReg(3)">
+            <div class="error-style" *ngIf="errorMessage">{{error[3]}}</div>
+            <span class="reg-eye material-symbols-outlined" (click)="passwordToggle('reg')">
+                {{passwordText}}
+            </span>
+        </div>
+        <div class="agree">
+            <input type="checkbox" name="agree" id="agree" [(ngModel)]="inputReg[4]" (input)="onInputReg(4)">
+            <label for="agree" [ngClass]="errorAgree">Agree to Terms and Conditions</label>
+        </div>
+        <div class="submit-btn-register">
+            <input type="submit" name="submit" id="submit" value="Continue">
+        </div>
+    </form>
+</div>
